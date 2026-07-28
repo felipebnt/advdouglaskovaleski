@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ChamadaFinal from '../../components/ChamadaFinal.astro';
+
+const artigos = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+
+<Base
+  titulo="Orientação"
+  descricao="Textos sobre direito criminal para quem precisa entender o que está acontecendo: flagrante, depoimento, inquérito, processo e execução penal."
+>
+  <section class="secao fundo-topo">
+    <div class="container centro">
+      <p class="olho">Orientação</p>
+      <h1>Entender antes de decidir</h1>
+      <hr class="divisor" />
+      <p class="apoio medida">
+        Textos para quem está passando por uma situação criminal e precisa
+        entender o terreno. Orientação geral — não substitui a análise do caso
+        concreto.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao lista">
+    <div class="container medida">
+      {
+        artigos.length === 0 ? (
+          <p class="vazio">
+            As primeiras publicações estão a caminho. Enquanto isso, veja as
+            <a href="/situacoes/"> situações mais comuns</a>.
+          </p>
+        ) : (
+          <ul class="artigos">
+            {artigos.map((artigo) => (
+              <li>
+                <a href={`/blog/${artigo.id}/`}>
+                  <time datetime={artigo.data.publishedAt.toISOString()}>
+                    {artigo.data.publishedAt.toLocaleDateString('pt-BR', {
+                      day: '2-digit',
+                      month: 'long',
+                      year: 'numeric',
+                    })}
+                  </time>
+                  <h2>{artigo.data.title}</h2>
+                  <p>{artigo.data.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  <ChamadaFinal />
+</Base>
+
+<style>
+  .lista {
+    padding-top: 0;
+  }
+
+  .artigos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .artigos li {
+    border-top: 1px solid var(--dourado-tenue);
+  }
+
+  .artigos li:last-child {
+    border-bottom: 1px solid var(--dourado-tenue);
+  }
+
+  .artigos a {
+    display: block;
+    padding-block: 2rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .artigos time {
+    display: block;
+    font-family: var(--serifa-titulo);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 0.8rem;
+  }
+
+  .artigos h2 {
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    margin-bottom: 0.7rem;
+  }
+
+  .artigos a:hover h2 {
+    color: var(--dourado-claro);
+  }
+
+  .artigos p {
+    color: var(--texto-suave);
+    margin-bottom: 0;
+  }
+
+  .vazio {
+    color: var(--texto-suave);
+    text-align: center;
+  }
+</style>

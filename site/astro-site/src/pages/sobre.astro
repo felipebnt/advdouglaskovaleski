@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import ChamadaFinal from '../components/ChamadaFinal.astro';
+import { ETAPAS } from '../consts';
+---
+
+<Base
+  titulo="Sobre"
+  descricao="Douglas Kovaleski, advogado criminalista no Rio de Janeiro. Atendimento direto com o advogado, sigilo e condução técnica desde o primeiro contato."
+>
+  <section class="secao fundo-topo">
+    <div class="container medida">
+      <p class="olho">Sobre</p>
+      <h1>Douglas Kovaleski</h1>
+      <hr class="divisor esquerda" />
+
+      <div class="prosa">
+        <p class="apoio">
+          Advogado atuante em direito criminal e empresarial no Rio de Janeiro.
+        </p>
+
+        <p>
+          A defesa criminal costuma ser procurada tarde. A pessoa é intimada e
+          vai depor sozinha. A família recebe o telefonema da delegacia e tenta
+          resolver por conta própria. O inquérito corre por meses e o advogado só
+          é chamado quando a denúncia chega.
+        </p>
+
+        <p>
+          Quando isso acontece, boa parte do que definiria o caso já está
+          registrada — e registrada do jeito de quem acusa.
+        </p>
+
+        <p>
+          Meu trabalho parte da premissa oposta: <strong>a condução inicial
+          influencia todo o resto</strong>. Estar presente na delegacia, na
+          audiência de custódia e durante a investigação não é excesso de zelo.
+          É onde a defesa ainda tem espaço para agir.
+        </p>
+
+        <h2>Atendimento direto</h2>
+
+        <p>
+          Trabalho sozinho, e isso é uma escolha. Quem me procura fala comigo —
+          não com um estagiário, não com uma central, não com quem vai repassar o
+          recado depois.
+        </p>
+
+        <p>
+          Em matéria criminal, essa diferença aparece na prática: a decisão de
+          contratar acontece em horas, muitas vezes de madrugada, e quem liga
+          precisa de uma resposta técnica na hora, não de um protocolo.
+        </p>
+
+        <h2>Sigilo</h2>
+
+        <p>
+          Nenhum caso atendido por mim aparece em post, em legenda ou em conversa.
+          Nem anonimizado, nem "por alto".
+        </p>
+
+        <p>
+          Quem procura um criminalista está em um dos piores momentos da própria
+          vida. O sigilo não é um item da lista de serviços — é a condição para
+          que exista qualquer serviço.
+        </p>
+
+        <h2>O que eu não faço</h2>
+
+        <p>
+          Não prometo resultado. Não existe advogado sério que garanta liberdade,
+          absolvição ou arquivamento — e a ética da advocacia veda essa promessa
+          justamente porque ela explora quem está vulnerável.
+        </p>
+
+        <p>
+          O que eu assumo é compromisso com atuação técnica, com os prazos do seu
+          caso e com você entendendo, em português, o que está acontecendo.
+        </p>
+
+        <h2>Áreas de atuação</h2>
+
+        <p>
+          <strong>Criminal:</strong> prisão em flagrante e audiência de custódia,
+          inquérito policial, acompanhamento de depoimento, defesa em processo
+          criminal e recursos, medidas protetivas e cautelares, execução penal e
+          ato infracional (ECA/DEGASE).
+        </p>
+
+        <p>
+          <strong>Empresarial:</strong> assessoria jurídica preventiva, análise de
+          risco na tomada de decisão e defesa de patrimônio, para empresários que
+          preferem tratar o problema antes que ele vire processo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container">
+      <div class="centro">
+        <p class="olho">Como funciona</p>
+        <h2>Do primeiro contato ao acompanhamento</h2>
+        <hr class="divisor" />
+      </div>
+
+      <ol class="etapas">
+        {
+          ETAPAS.map((etapa) => (
+            <li>
+              <span class="numero">{etapa.numero}</span>
+              <h3>{etapa.titulo}</h3>
+              <p>{etapa.texto}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <ChamadaFinal />
+</Base>
+
+<style>
+  .etapas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+
+  .etapas li {
+    border-top: 1px solid var(--dourado-fraco);
+    padding-top: 1.25rem;
+  }
+
+  .etapas .numero {
+    display: block;
+    font-family: var(--serifa-titulo);
+    font-size: 1.6rem;
+    color: var(--dourado);
+    margin-bottom: 0.6rem;
+  }
+
+  .etapas p {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+</style>

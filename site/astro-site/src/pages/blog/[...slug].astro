@@ -1,0 +1,155 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ChamadaFinal from '../../components/ChamadaFinal.astro';
+import { SITE } from '../../consts';
+
+export async function getStaticPaths() {
+  /**
+   * Rascunhos entram como página com noindex em desenvolvimento, para que
+   * Douglas revise antes de aprovar. Em produção eles ficam de fora.
+   */
+  const artigos = await getCollection('blog', ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true
+  );
+
+  return artigos.map((artigo) => ({
+    params: { slug: artigo.id },
+    props: { artigo },
+  }));
+}
+
+interface Props {
+  artigo: CollectionEntry<'blog'>;
+}
+
+const { artigo } = Astro.props;
+const { data } = artigo;
+const { Content } = await render(artigo);
+
+const situacoes = await getCollection('situacoes');
+const situacao = data.situacao
+  ? situacoes.find((s) => s.id === data.situacao)
+  : undefined;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  datePublished: data.publishedAt.toISOString(),
+  dateModified: (data.updatedAt ?? data.publishedAt).toISOString(),
+  author: { '@type': 'Person', name: data.author },
+  publisher: { '@type': 'Organization', name: SITE.assinatura },
+  inLanguage: 'pt-BR',
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site ?? SITE.url).href,
+};
+
+const formatarData = (data: Date) =>
+  data.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+---
+
+<Base
+  titulo={data.title}
+  descricao={data.description}
+  schema={schema}
+  noindex={data.draft}
+>
+  <article>
+    <header class="topo fundo-topo">
+      <div class="container medida">
+        <nav class="migalhas" aria-label="Você está em">
+          <a href="/">Início</a>
+          <span aria-hidden="true">/</span>
+          <a href="/blog/">Orientação</a>
+        </nav>
+        {data.draft && <p class="rascunho">Rascunho — não publicado</p>}
+        <h1>{data.title}</h1>
+        <hr class="divisor esquerda" />
+        <p class="meta">
+          <time datetime={data.publishedAt.toISOString()}>
+            {formatarData(data.publishedAt)}
+          </time>
+          <span aria-hidden="true">•</span>
+          <span>{data.author}</span>
+        </p>
+      </div>
+    </header>
+
+    <div class="container medida prosa">
+      <Content />
+    </div>
+
+    {
+      situacao && (
+        <section class="secao">
+          <div class="container medida">
+            <a class="cartao" href={`/situacoes/${situacao.id}/`}>
+              <span class="olho">Situação relacionada</span>
+              <h3>{situacao.data.titulo}</h3>
+              <p>{situacao.data.resumo}</p>
+            </a>
+          </div>
+        </section>
+      )
+    }
+  </article>
+
+  <ChamadaFinal mensagem={situacao?.data.mensagemWhatsapp} />
+</Base>
+
+<style>
+  .topo {
+    padding-block: clamp(2.5rem, 7vw, 4.5rem) 1.5rem;
+  }
+
+  .migalhas {
+    font-family: var(--serifa-titulo);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--texto-fraco);
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .migalhas a {
+    color: var(--texto-fraco);
+    text-decoration: none;
+  }
+
+  .migalhas a:hover {
+    color: var(--dourado-claro);
+  }
+
+  .rascunho {
+    display: inline-block;
+    font-family: var(--serifa-titulo);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    border: 1px solid var(--dourado-fraco);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.7rem;
+    font-family: var(--serifa-titulo);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--texto-fraco);
+  }
+
+  .cartao .olho {
+    display: block;
+  }
+</style>

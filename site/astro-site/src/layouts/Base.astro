@@ -1,0 +1,102 @@
+---
+import '@fontsource/cinzel/400.css';
+import '@fontsource/cinzel/500.css';
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '../styles/global.css';
+
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+import BotaoFlutuante from '../components/BotaoFlutuante.astro';
+import { CONTATO, SITE } from '../consts';
+
+interface Props {
+  titulo: string;
+  descricao: string;
+  /** Sobrescreve o <title>. Por padrão o título vem sufixado com a marca. */
+  tituloCompleto?: string;
+  /** Structured data extra da página (FAQ, Article, Breadcrumb). */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { titulo, descricao, tituloCompleto, schema, noindex = false } = Astro.props;
+
+const title = tituloCompleto ?? `${titulo} | ${SITE.nome} — Advogado Criminalista RJ`;
+const canonica = new URL(Astro.url.pathname, Astro.site ?? SITE.url);
+
+/**
+ * Perfil do escritório. Repetido em toda página de propósito — é assim que
+ * buscador e assistente de IA associam o nome ao serviço e à cidade.
+ */
+const perfil = {
+  '@context': 'https://schema.org',
+  '@type': 'Attorney',
+  name: `${SITE.assinatura} — ${SITE.nome}`,
+  description: SITE.descricao,
+  url: SITE.url,
+  telephone: `+${CONTATO.whatsappNumero}`,
+  email: CONTATO.email,
+  areaServed: { '@type': 'City', name: 'Rio de Janeiro' },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Rio de Janeiro',
+    addressRegion: 'RJ',
+    addressCountry: 'BR',
+  },
+  knowsLanguage: 'pt-BR',
+  sameAs: [CONTATO.instagramUrl],
+  knowsAbout: [
+    'Direito Criminal',
+    'Prisão em flagrante',
+    'Audiência de custódia',
+    'Inquérito policial',
+    'Execução penal',
+    'Direito Empresarial',
+  ],
+};
+
+const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#05070A" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.assinatura} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Orientação — Kovaleski Advogados" href="/rss.xml" />
+
+    {
+      blocos.map((bloco) => (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(bloco)} />
+      ))
+    }
+  </head>
+
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <Cabecalho />
+    <main id="conteudo">
+      <slot />
+    </main>
+    <Rodape />
+    <BotaoFlutuante />
+  </body>
+</html>

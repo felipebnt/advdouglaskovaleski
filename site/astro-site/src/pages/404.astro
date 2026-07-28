@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import BotaoWhatsapp from '../components/BotaoWhatsapp.astro';
+---
+
+<Base
+  titulo="Página não encontrada"
+  descricao="A página que você procurava não existe."
+  noindex
+>
+  <section class="secao vazio fundo-topo">
+    <div class="container medida centro">
+      <p class="olho">Erro 404</p>
+      <h1>Página não encontrada</h1>
+      <hr class="divisor" />
+      <p class="apoio">
+        O endereço que você acessou não existe ou foi alterado. Se você chegou
+        aqui procurando ajuda, os caminhos abaixo resolvem.
+      </p>
+      <div class="botoes centro">
+        <BotaoWhatsapp />
+        <a class="botao botao--discreto" href="/situacoes/">Ver situações</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .vazio {
+    padding-block: clamp(4rem, 12vw, 8rem);
+  }
+</style>

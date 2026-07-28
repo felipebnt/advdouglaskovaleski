@@ -1,0 +1,61 @@
+---
+/**
+ * Fecho padrão de toda página. O site inteiro converge pro WhatsApp —
+ * é o gargalo declarado em `_memoria/estrategia.md`.
+ */
+import BotaoWhatsapp from './BotaoWhatsapp.astro';
+import { CONTATO } from '../consts';
+
+interface Props {
+  titulo?: string;
+  texto?: string;
+  mensagem?: string;
+}
+
+const {
+  titulo = 'Precisa falar agora?',
+  texto = 'Me chame no WhatsApp e me conte o que está acontecendo. Quem responde sou eu.',
+  mensagem,
+} = Astro.props;
+---
+
+<section class="secao">
+  <div class="container">
+    <div class="caixa centro">
+      <h2>{titulo}</h2>
+      <hr class="divisor" />
+      <p class="apoio medida">{texto}</p>
+      <div class="botoes centro">
+        <BotaoWhatsapp mensagem={mensagem} />
+      </div>
+      <p class="numero">{CONTATO.whatsappExibicao}</p>
+      <p class="nota">
+        Atendimento sigiloso. Confirme sempre os
+        <a href="/canais-oficiais/">canais oficiais</a> antes de enviar qualquer
+        informação.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .caixa {
+    border: 1px solid var(--dourado-fraco);
+    border-radius: var(--raio);
+    padding: clamp(2rem, 5vw, 3.5rem) 1.5rem;
+  }
+
+  .numero {
+    font-family: var(--serifa-titulo);
+    letter-spacing: 0.14em;
+    color: var(--dourado-claro);
+    margin-top: 1.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .nota {
+    font-size: 0.98rem;
+    color: var(--texto-fraco);
+    margin-bottom: 0;
+  }
+</style>

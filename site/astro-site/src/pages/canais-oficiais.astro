@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import BotaoWhatsapp from '../components/BotaoWhatsapp.astro';
+import { CONTATO } from '../consts';
+
+const canais = [
+  {
+    rotulo: 'WhatsApp',
+    valor: CONTATO.whatsappExibicao,
+    href: `https://wa.me/${CONTATO.whatsappNumero}`,
+  },
+  {
+    rotulo: 'Instagram',
+    valor: `@${CONTATO.instagram}`,
+    href: CONTATO.instagramUrl,
+  },
+  {
+    rotulo: 'E-mail',
+    valor: CONTATO.email,
+    href: `mailto:${CONTATO.email}`,
+  },
+];
+---
+
+<Base
+  titulo="Canais oficiais"
+  descricao="Confirme os canais oficiais de Douglas Kovaleski antes de enviar informações ou fazer qualquer pagamento. Evite golpes com falsos escritórios."
+>
+  <section class="secao fundo-topo">
+    <div class="container medida centro">
+      <p class="olho">Atenção</p>
+      <h1>Evite <span class="dourado">fraudes</span></h1>
+      <hr class="divisor" />
+      <p class="apoio">
+        Já houve tentativa de golpe com pessoas se passando por este escritório.
+        Antes de enviar qualquer informação ou fazer qualquer pagamento, confirme
+        o canal.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao topo-zero">
+    <div class="container medida">
+      <div class="cartao canais">
+        <h2>Estes são os únicos canais oficiais</h2>
+        <hr class="divisor esquerda" />
+        <ul>
+          {
+            canais.map((canal) => (
+              <li>
+                <span class="rotulo">{canal.rotulo}</span>
+                <a href={canal.href} target="_blank" rel="noopener noreferrer">
+                  {canal.valor}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="prosa alerta">
+        <h2>Sinais de golpe</h2>
+
+        <p>
+          <strong>Cobrança por outro número.</strong> Se a conversa começou em um
+          canal e o pedido de pagamento chega por outro, pare e confirme.
+        </p>
+
+        <p>
+          <strong>PIX em nome de terceiro.</strong> Desconfie de chave em nome de
+          pessoa ou empresa sem relação com o escritório.
+        </p>
+
+        <p>
+          <strong>Urgência artificial.</strong> "Pague agora ou a liberação não
+          sai hoje" não é como um advogado trabalha. Pressão para pagamento
+          imediato é sinal de fraude.
+        </p>
+
+        <p>
+          <strong>Promessa de resultado.</strong> Nenhum advogado sério garante
+          soltura, absolvição ou arquivamento. Quem garante está mentindo — ou não
+          é advogado.
+        </p>
+
+        <p>
+          <strong>Perfil parecido, mas não igual.</strong> Confira o nome de
+          usuário do Instagram caractere por caractere: o oficial é
+          <strong> @{CONTATO.instagram}</strong>.
+        </p>
+
+        <h2>Na dúvida, confirme</h2>
+
+        <p>
+          Se você recebeu contato que diz ser deste escritório e algo não parece
+          certo, não responda e não pague. Fale pelo WhatsApp oficial abaixo e
+          confirme.
+        </p>
+
+        <p>
+          Vale também o contrário: se você foi vítima de um golpe desse tipo,
+          guarde as mensagens, os comprovantes e os dados da conta que recebeu o
+          valor. Esse material é o que instrui uma comunicação à autoridade
+          policial.
+        </p>
+      </div>
+
+      <div class="botoes centro fecho">
+        <BotaoWhatsapp
+          texto="Confirmar pelo WhatsApp oficial"
+          mensagem="Olá, doutor. Recebi um contato e gostaria de confirmar se é do escritório."
+        />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo-zero {
+    padding-top: 0;
+  }
+
+  .canais ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .canais li {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .rotulo {
+    font-family: var(--serifa-titulo);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dourado);
+  }
+
+  .canais a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 1.15rem;
+  }
+
+  .canais a:hover {
+    color: var(--dourado-claro);
+  }
+
+  .alerta {
+    margin-top: 3rem;
+  }
+
+  .fecho {
+    margin-top: 2.5rem;
+  }
+</style>

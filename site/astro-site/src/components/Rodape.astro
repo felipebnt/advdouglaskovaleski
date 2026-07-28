@@ -1,0 +1,131 @@
+---
+import { getCollection } from 'astro:content';
+import Assinatura from './Assinatura.astro';
+import { CONTATO, SITE, whatsapp } from '../consts';
+
+const situacoes = (await getCollection('situacoes')).sort(
+  (a, b) => a.data.ordem - b.data.ordem
+);
+const ano = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <div class="topo">
+      <div class="coluna marca-col">
+        <Assinatura />
+        <p class="apoio">
+          Atuação em direito criminal no Rio de Janeiro. Atendimento direto com o
+          advogado, sem intermediário.
+        </p>
+      </div>
+
+      <div class="coluna">
+        <h3>Situações</h3>
+        <ul>
+          {
+            situacoes.map((s) => (
+              <li>
+                <a href={`/situacoes/${s.id}/`}>{s.data.chamada}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="coluna">
+        <h3>Canais oficiais</h3>
+        <ul>
+          <li>
+            <a href={whatsapp()} target="_blank" rel="noopener noreferrer">
+              WhatsApp {CONTATO.whatsappExibicao}
+            </a>
+          </li>
+          <li>
+            <a href={CONTATO.instagramUrl} target="_blank" rel="noopener noreferrer">
+              @{CONTATO.instagram}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${CONTATO.email}`}>{CONTATO.email}</a>
+          </li>
+          <li><a href="/canais-oficiais/">Como confirmar que é o escritório</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="base">
+      <p>{SITE.assinatura} • {SITE.subtitulo}</p>
+      <p class="aviso">
+        Este site tem caráter informativo e não substitui a análise do caso
+        concreto. O conteúdo aqui publicado não constitui consulta jurídica.
+      </p>
+      <p class="copy">© {ano} {SITE.nome}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--dourado-tenue);
+    padding-block: 3.5rem 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .topo {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  }
+
+  .marca-col .apoio {
+    margin-top: 1rem;
+    font-size: 1rem;
+    max-width: 34ch;
+  }
+
+  .coluna h3 {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--dourado);
+    margin-bottom: 1rem;
+  }
+
+  .coluna ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .coluna a {
+    color: var(--texto-suave);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .coluna a:hover {
+    color: var(--dourado-claro);
+  }
+
+  .base {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--dourado-tenue);
+    font-size: 0.95rem;
+    color: var(--texto-fraco);
+  }
+
+  .base p {
+    margin-bottom: 0.5rem;
+  }
+
+  .aviso {
+    max-width: 62ch;
+  }
+
+  .copy {
+    margin-bottom: 0;
+  }
+</style>

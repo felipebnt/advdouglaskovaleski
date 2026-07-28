@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ChamadaFinal from '../../components/ChamadaFinal.astro';
+
+const situacoes = (await getCollection('situacoes')).sort(
+  (a, b) => a.data.ordem - b.data.ordem
+);
+---
+
+<Base
+  titulo="Situações"
+  descricao="Prisão em flagrante, intimação para depor, inquérito, processo criminal, medida protetiva, execução penal e ato infracional. Entenda cada situação e o que fazer."
+>
+  <section class="secao fundo-topo">
+    <div class="container centro">
+      <p class="olho">Situações</p>
+      <h1>Onde o seu caso está</h1>
+      <hr class="divisor" />
+      <p class="apoio medida">
+        Cada momento tem prazo e caminho próprios. Encontre o que mais se parece
+        com a sua situação — as páginas explicam o que acontece a seguir e o que
+        evitar enquanto isso.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao lista">
+    <div class="container">
+      <div class="grade">
+        {
+          situacoes.map((s) => (
+            <a class="cartao" href={`/situacoes/${s.id}/`}>
+              {s.data.urgente && <span class="etiqueta">Urgente</span>}
+              <h3>{s.data.titulo}</h3>
+              <p>{s.data.resumo}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ChamadaFinal />
+</Base>
+
+<style>
+  .lista {
+    padding-top: 0;
+  }
+
+  .etiqueta {
+    display: inline-block;
+    font-family: var(--serifa-titulo);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    border: 1px solid var(--dourado-fraco);
+    border-radius: 999px;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.9rem;
+  }
+</style>

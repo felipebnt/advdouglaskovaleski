@@ -1,0 +1,186 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ChamadaFinal from '../components/ChamadaFinal.astro';
+import { CONTATO } from '../consts';
+
+/** Dúvidas gerais. As específicas de cada momento vivem nas páginas de situação. */
+const gerais = [
+  {
+    pergunta: 'Preciso de advogado antes de ir à delegacia?',
+    resposta:
+      'Sempre que possível, sim. O depoimento é reduzido a termo, assinado e permanece no procedimento até o fim. Entender antes em que qualidade você está sendo chamado e o que já consta nos autos muda completamente a preparação.',
+  },
+  {
+    pergunta: 'Posso ficar calado em um depoimento?',
+    resposta:
+      'Pode. O direito ao silêncio está garantido na Constituição, vale desde a fase de investigação e o seu exercício não pode ser usado como prova ou indício contra a pessoa.',
+  },
+  {
+    pergunta: 'O atendimento é sigiloso?',
+    resposta:
+      'Integralmente. O sigilo profissional cobre tudo que é dito no atendimento, inclusive quando não há contratação. Nenhum caso atendido é usado como exemplo em conteúdo, nem de forma anonimizada.',
+  },
+  {
+    pergunta: 'Vocês atendem fora do horário comercial?',
+    resposta:
+      'Flagrante e apreensão não escolhem horário, e a audiência de custódia ocorre em até 24 horas. Situações de urgência devem ser relatadas pelo WhatsApp assim que acontecem.',
+  },
+  {
+    pergunta: 'Atendem em quais cidades?',
+    resposta:
+      'A atuação é concentrada no Rio de Janeiro e região metropolitana. Casos de outras localidades podem ser analisados conforme a fase e a natureza do procedimento.',
+  },
+  {
+    pergunta: 'Quanto custa contratar um advogado criminalista?',
+    resposta:
+      'Honorários dependem da complexidade do caso, da fase em que ele está e do trabalho envolvido, e por isso são tratados individualmente no atendimento. As normas da advocacia não permitem divulgação de valores ou promoções em publicidade.',
+  },
+  {
+    pergunta: 'Dá para saber o resultado do caso antes de contratar?',
+    resposta:
+      'Não, e desconfie de quem afirmar que sim. É possível analisar o cenário, apontar os caminhos técnicos e explicar o que costuma acontecer em cada etapa — mas garantir desfecho é vedado pela ética profissional.',
+  },
+  {
+    pergunta: 'Já tenho advogado. Posso pedir uma segunda opinião?',
+    resposta:
+      'Pode. A análise de um caso em andamento por outro profissional é legítima, e o réu pode constituir novo advogado a qualquer momento do processo.',
+  },
+  {
+    pergunta: 'Como sei que estou falando com o escritório de verdade?',
+    resposta: `Já houve tentativa de golpe com pessoas se passando pelo escritório. Os canais oficiais são o WhatsApp ${CONTATO.whatsappExibicao}, o Instagram @${CONTATO.instagram} e o e-mail ${CONTATO.email}. Nenhum pagamento é solicitado por outro canal, nem por chave PIX de terceiros.`,
+  },
+];
+
+const situacoes = (await getCollection('situacoes')).sort(
+  (a, b) => a.data.ordem - b.data.ordem
+);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: gerais.map((p) => ({
+    '@type': 'Question',
+    name: p.pergunta,
+    acceptedAnswer: { '@type': 'Answer', text: p.resposta },
+  })),
+};
+---
+
+<Base
+  titulo="Perguntas frequentes"
+  descricao="Dúvidas comuns sobre defesa criminal no Rio de Janeiro: depoimento, direito ao silêncio, sigilo, honorários e como confirmar os canais oficiais do escritório."
+  schema={schema}
+>
+  <section class="secao fundo-topo">
+    <div class="container medida">
+      <p class="olho">Dúvidas</p>
+      <h1>Perguntas frequentes</h1>
+      <hr class="divisor esquerda" />
+      <p class="apoio">
+        As dúvidas que mais aparecem no primeiro contato. Respostas gerais — o
+        seu caso concreto precisa ser analisado individualmente.
+      </p>
+
+      <div class="faq">
+        {
+          gerais.map((p) => (
+            <details>
+              <summary>{p.pergunta}</summary>
+              <p>{p.resposta}</p>
+            </details>
+          ))
+        }
+      </div>
+
+      <h2 class="titulo-situacoes">Dúvidas por situação</h2>
+      <hr class="divisor esquerda" />
+      <p class="apoio">
+        Cada momento tem perguntas próprias. Elas estão respondidas na página
+        correspondente.
+      </p>
+      <ul class="atalhos">
+        {
+          situacoes.map((s) => (
+            <li>
+              <a href={`/situacoes/${s.id}/`}>{s.data.titulo}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <ChamadaFinal
+    titulo="Ficou uma dúvida que não está aqui?"
+    texto="Me chame no WhatsApp e pergunte. Se for sobre um caso concreto, precisamos analisá-lo antes de qualquer orientação."
+  />
+</Base>
+
+<style>
+  .faq {
+    margin-top: 2.5rem;
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--dourado-tenue);
+    padding-block: 1.1rem;
+  }
+
+  .faq details:first-child {
+    border-top: 1px solid var(--dourado-tenue);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    font-family: var(--serifa-titulo);
+    font-size: 0.86rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--texto);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq summary::after {
+    content: '+';
+    color: var(--dourado);
+    flex-shrink: 0;
+  }
+
+  .faq details[open] summary::after {
+    content: '−';
+  }
+
+  .faq details p {
+    margin: 1rem 0 0;
+    color: var(--texto-suave);
+  }
+
+  .titulo-situacoes {
+    margin-top: 4rem;
+  }
+
+  .atalhos {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .atalhos a {
+    color: var(--texto-suave);
+    text-decoration: none;
+  }
+
+  .atalhos a:hover {
+    color: var(--dourado-claro);
+  }
+</style>

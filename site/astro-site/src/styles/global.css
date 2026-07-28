@@ -1,0 +1,353 @@
+/*
+ * Identidade visual — ver `identidade/design-guide.md` na raiz do MazyOS.
+ * Regra dura: fundo escuro sempre, dourado como único destaque, sem sombra.
+ */
+
+:root {
+  --preto: #05070a;
+  --marinho: #0e2036;
+  --marinho-claro: #16304d;
+
+  --dourado: #c9973f;
+  --dourado-claro: #d8b06a;
+  --dourado-fraco: rgba(201, 151, 63, 0.28);
+  --dourado-tenue: rgba(201, 151, 63, 0.12);
+
+  --texto: #f5f1ea;
+  --texto-suave: rgba(245, 241, 234, 0.72);
+  --texto-fraco: rgba(245, 241, 234, 0.5);
+
+  --serifa-titulo: 'Cinzel', 'Times New Roman', serif;
+  --serifa-corpo: 'Cormorant Garamond', Georgia, serif;
+
+  --raio: 14px;
+  --largura: 1120px;
+  --largura-texto: 68ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa o header fixo quando uma âncora é aberta direto pela URL. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--preto);
+  color: var(--texto);
+  font-family: var(--serifa-corpo);
+  /* Cormorant tem altura-x baixa: precisa de corpo maior para ler igual. */
+  font-size: 1.3rem;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Gradiente do topo. Vai do preto ao marinho e volta ao preto dentro da própria
+ * faixa — assim não sobra emenda visível onde a seção termina.
+ */
+.fundo-topo {
+  background-image: linear-gradient(
+    180deg,
+    var(--preto) 0%,
+    var(--marinho) 58%,
+    var(--preto) 100%
+  );
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--serifa-titulo);
+  font-weight: 500;
+  line-height: 1.24;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4.6vw, 3.1rem);
+  letter-spacing: 0.08em;
+}
+
+h2 {
+  font-size: clamp(1.35rem, 2.8vw, 1.95rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin: 0 0 1.15rem;
+}
+
+a {
+  color: var(--dourado-claro);
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--dourado-fraco);
+}
+
+a:hover {
+  text-decoration-color: var(--dourado-claro);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- estrutura ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.secao {
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.centro {
+  text-align: center;
+}
+
+.medida {
+  max-width: var(--largura-texto);
+  margin-inline: auto;
+}
+
+/* Filete dourado curto sob o título — assinatura do padrão visual. */
+.divisor {
+  width: 64px;
+  height: 1px;
+  border: 0;
+  background: var(--dourado);
+  margin: 1.5rem auto 2rem;
+}
+
+.divisor.esquerda {
+  margin-inline: 0;
+}
+
+.olho {
+  font-family: var(--serifa-titulo);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 0.9rem;
+}
+
+.apoio {
+  color: var(--texto-suave);
+  font-size: 1.4rem;
+}
+
+.dourado {
+  color: var(--dourado-claro);
+}
+
+/* ---------- cartão ---------- */
+
+.cartao {
+  border: 1px solid var(--dourado-fraco);
+  border-radius: var(--raio);
+  padding: 1.75rem;
+  background: transparent;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+a.cartao {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.cartao:hover,
+a.cartao:focus-visible {
+  border-color: var(--dourado);
+  transform: translateY(-2px);
+}
+
+.cartao h3 {
+  color: var(--texto);
+  margin-bottom: 0.6rem;
+}
+
+.cartao p {
+  color: var(--texto-suave);
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.grade {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* ---------- botões ---------- */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--dourado);
+  border-radius: var(--raio);
+  background: transparent;
+  color: var(--dourado-claro);
+  font-family: var(--serifa-titulo);
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.botao:hover,
+.botao:focus-visible {
+  background: var(--dourado);
+  color: var(--preto);
+}
+
+.botao svg {
+  flex-shrink: 0;
+}
+
+/* Filete vertical separando ícone e texto, conforme o design-guide. */
+.botao .filete {
+  width: 1px;
+  align-self: stretch;
+  background: var(--dourado-fraco);
+}
+
+.botao:hover .filete,
+.botao:focus-visible .filete {
+  background: rgba(5, 7, 10, 0.35);
+}
+
+.botao--discreto {
+  border-color: var(--dourado-fraco);
+  color: var(--texto-suave);
+}
+
+.botao--discreto:hover,
+.botao--discreto:focus-visible {
+  background: transparent;
+  border-color: var(--dourado);
+  color: var(--dourado-claro);
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.botoes.centro {
+  justify-content: center;
+}
+
+/* ---------- texto longo (markdown renderizado) ---------- */
+
+.prosa h2 {
+  margin-top: 2.75rem;
+  color: var(--texto);
+}
+
+.prosa h3 {
+  margin-top: 2rem;
+}
+
+.prosa strong {
+  color: var(--dourado-claro);
+  font-weight: 600;
+}
+
+.prosa ul,
+.prosa ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.prosa li {
+  margin-bottom: 0.5rem;
+}
+
+.prosa blockquote {
+  border-left: 1px solid var(--dourado);
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+.prosa hr {
+  border: 0;
+  border-top: 1px solid var(--dourado-tenue);
+  margin: 2.5rem 0;
+}
+
+.prosa a {
+  color: var(--dourado-claro);
+}
+
+/* ---------- acessibilidade ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--dourado-claro);
+  outline-offset: 3px;
+}
+
+.pular {
+  position: absolute;
+  left: -9999px;
+}
+
+.pular:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--preto);
+  border: 1px solid var(--dourado);
+  border-radius: var(--raio);
+}
+
+.oculto-visual {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

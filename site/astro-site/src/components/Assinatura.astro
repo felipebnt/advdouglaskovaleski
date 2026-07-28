@@ -1,0 +1,55 @@
+---
+/**
+ * Assinatura tipográfica usada no lugar do logo — ver `identidade/design-guide.md`.
+ * Enquanto não existir arquivo de logo, é isso que marca as peças.
+ */
+import { SITE } from '../consts';
+
+interface Props {
+  tamanho?: 'pequena' | 'media';
+}
+
+const { tamanho = 'media' } = Astro.props;
+---
+
+<span class:list={['assinatura', tamanho]}>
+  <span class="nome">{SITE.nome}</span>
+  <span class="area">Advocacia Criminal</span>
+</span>
+
+<style>
+  .assinatura {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.28em;
+    font-family: var(--serifa-titulo);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nome {
+    color: var(--texto);
+    letter-spacing: 0.14em;
+  }
+
+  .area {
+    color: var(--dourado);
+    letter-spacing: 0.2em;
+  }
+
+  .media .nome {
+    font-size: 1rem;
+  }
+
+  .media .area {
+    font-size: 0.62rem;
+  }
+
+  .pequena .nome {
+    font-size: 0.85rem;
+  }
+
+  .pequena .area {
+    font-size: 0.55rem;
+  }
+</style>
