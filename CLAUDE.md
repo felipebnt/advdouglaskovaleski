@@ -113,3 +113,94 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+---
+
+# Douglas Kovaleski — perfil aplicado
+
+> Perfil **solopreneur / marca pessoal**, aplicado pelo `/instalar` em 28/07/2026.
+
+## O que é esse workspace
+
+Operação da marca pessoal do Douglas Kovaleski, advogado criminalista no Rio
+de Janeiro. Aqui se produz o conteúdo, o material de captação e os documentos
+que fazem o telefone tocar — e se guarda o contexto pra isso não precisar ser
+explicado de novo a cada vez.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem ele é, como fala, o que tá em foco
+- `identidade/` — cores, fontes, padrão visual (logo ainda não existe)
+- `marketing/` — conteúdo, SEO, campanhas (saída das skills)
+- `saidas/` — análises, e-mails, documentos pontuais
+- `dados/` — arquivos a analisar (CSV, PDF, planilha)
+- `scripts/` — utilitários (gerar imagem, publicar, render)
+- `templates/` — moldes usados pelas skills
+
+## Quem é
+
+Douglas Kovaleski, advogado especialista em **direito criminal e empresarial**,
+atuando no Rio de Janeiro. Trabalha sozinho: o cliente fala com o advogado, não
+com intermediário. O criminal é o carro-chefe — flagrante, custódia, inquérito,
+processo, execução penal, ECA/DEGASE.
+
+O diferencial dele não é volume nem preço: é condução técnica desde o primeiro
+contato, num momento em que a pessoa costuma decidir errado por medo. O
+posicionamento público é esse — *a condução inicial influencia todo o resto do
+caso*.
+
+## O que produz
+
+- Posts e carrosséis no Instagram ([@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)) — orientação prática pra quem tá numa situação criminal
+- Conteúdo do site (https://kovaleskiadvogados.netlify.app/)
+- Peças de utilidade e alerta (ex: canais oficiais / golpe)
+- Propostas e comunicação direta com cliente
+
+## Audiência
+
+Pessoas no RJ em situação criminal urgente — e, principalmente, **os familiares
+delas**, que muitas vezes são quem procura, quem pesquisa e quem paga. Chegam
+assustados, com pressa e sem saber o que podem ou não falar. No empresarial, a
+audiência é o empresário que quer prevenir risco antes de virar processo.
+
+## Tom de voz
+
+Ver `_memoria/preferencias.md` — resumo: abre pelo cotidiano, vira técnico
+depois; frases curtas, um parágrafo por linha; fecha com ação clara; "nós" no
+institucional, "eu" no convite direto; emoji só quando funcional.
+
+Evitar: tom de coach/guru e qualquer sensacionalismo ou promessa de resultado.
+
+## Regras duras (OAB) — não negociáveis
+
+Valem pra **todo** texto, imagem, anúncio ou legenda gerado aqui, mesmo que
+seja pedido em contrário no calor do momento. Se um pedido esbarrar nisso,
+avisar e propor a versão que passa:
+
+- **Nunca prometer resultado.** Nada de "garantimos", "conseguimos a liberdade",
+  "100% de êxito". O compromisso é com atuação técnica, nunca com desfecho.
+- **Nunca expor caso, cliente ou detalhe de processo** — nem anonimizado de um
+  jeito que dê pra reconhecer. Sigilo é o produto.
+- **Nada de mercantilização**: sem preço em post, sem promoção, sem "consulta
+  grátis", sem captação sensacionalista em cima de tragédia ou caso midiático.
+- **Não dar consulta jurídica em conteúdo público.** O conteúdo orienta e
+  encaminha ao atendimento; não resolve o caso concreto de ninguém.
+- Todo material com contato aponta só pros **canais oficiais**: WhatsApp
+  (21) 99026-7742, @advdouglaskovaleski, douglaskovaleski.adv@gmail.com.
+
+## Regras do sistema
+
+- Conteúdo novo salva em `marketing/conteudo/<tipo>-<tema>-<data>/`
+- Todo conteúdo público fecha com CTA pro WhatsApp — é o gargalo declarado
+- Conteúdo sai como **proposta pra revisão**, nunca publicado direto sem o ok dele
+- Antes de qualquer peça visual, ler `identidade/design-guide.md`
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [ ] Canva
+- [ ] Google Calendar
+- [ ] Meta Ads
+- [ ] Google Ads
+
+*(Marcar conforme for instalando os MCPs)*
