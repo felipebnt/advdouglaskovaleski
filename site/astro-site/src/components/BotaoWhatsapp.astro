@@ -8,20 +8,27 @@ import { whatsapp } from '../consts';
 interface Props {
   texto?: string;
   mensagem?: string;
-  variante?: 'cheio' | 'discreto';
+  /** `solido` é o CTA principal — dourado preenchido, para o clique que importa. */
+  variante?: 'contorno' | 'solido' | 'discreto';
   class?: string;
 }
 
 const {
   texto = 'Falar no WhatsApp',
   mensagem,
-  variante = 'cheio',
+  variante = 'contorno',
   class: classe,
 } = Astro.props;
+
+const variantes = {
+  contorno: null,
+  solido: 'botao--solido',
+  discreto: 'botao--discreto',
+} as const;
 ---
 
 <a
-  class:list={['botao', variante === 'discreto' && 'botao--discreto', classe]}
+  class:list={['botao', variantes[variante], classe]}
   href={whatsapp(mensagem)}
   target="_blank"
   rel="noopener noreferrer"

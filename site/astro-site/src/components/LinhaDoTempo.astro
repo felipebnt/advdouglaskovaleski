@@ -1,0 +1,371 @@
+---
+/**
+ * Elemento-assinatura do site: o eixo de prazos que corre a partir da prisão.
+ *
+ * A seção fica presa na tela e o scroll desenha o eixo — cada marco surge
+ * quando a linha chega nele. Sóbrio por obrigação: o design-guide veda
+ * urgência visual agressiva e a OAB veda sensacionalismo. Nada de contagem
+ * regressiva, nada de vermelho — só o eixo sendo traçado.
+ *
+ * Sem biblioteca de animação: `position: sticky` faz o pin e um laço de
+ * requestAnimationFrame converte a rolagem num progresso de 0 a 1. Cada
+ * elemento lê esse progresso por variável CSS e anima só transform/opacity.
+ */
+import { MARCOS, RESSALVA } from '../data/prazos';
+---
+
+<section class="prazos" aria-labelledby="prazos-titulo">
+  <div class="trilho" data-trilho>
+    <div class="palco">
+      <div class="container">
+        <p class="olho">O relógio começa antes de você ser avisado</p>
+        <h2 id="prazos-titulo">
+          O que corre <span class="dourado">a partir da prisão</span>
+        </h2>
+
+        <figure class="linha">
+          <div class="eixo-area">
+            <span class="eixo" aria-hidden="true"></span>
+            <ol class="marcos">
+              {
+                MARCOS.map((marco) => (
+                  <li>
+                    <span class="tique" aria-hidden="true" />
+                    <span class="valor">{marco.valor}</span>
+                    <span class="rotulo">{marco.rotulo}</span>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+          <figcaption>{RESSALVA}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prazos {
+    background: var(--preto);
+    border-bottom: 1px solid var(--dourado-tenue);
+  }
+
+  /*
+   * O trilho define quanta rolagem a animação consome; o palco fica preso
+   * no topo enquanto ela acontece. Pin em CSS puro — nenhum JS mexe em
+   * layout, então não há salto nem travamento na rolagem.
+   */
+  .trilho {
+    height: 260vh;
+  }
+
+  .palco {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    overflow: hidden;
+    /*
+     * Recuo assimétrico: o de cima compensa o cabeçalho fixo, e o de baixo,
+     * maior, puxa o bloco para cima. Sem isso o conteúdo fica no centro exato
+     * do palco e abre um vão grande entre o fim do hero e o primeiro texto
+     * enquanto a seção entra na tela.
+     */
+    padding: 4rem 0 9rem;
+  }
+
+  .olho {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .linha {
+    margin: clamp(4rem, 13vh, 8rem) 0 0;
+  }
+
+  .eixo-area {
+    position: relative;
+    padding-top: 1.5rem;
+  }
+
+  .marcos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* --p: progresso do traçado, 0 a 1. */
+  .eixo {
+    position: absolute;
+    top: 0;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: var(--dourado-fraco);
+    transform: scaleX(var(--p, 1));
+    transform-origin: left center;
+    will-change: transform;
+  }
+
+  /*
+   * --m: entrada do marco. --n: do número. --t: da descrição.
+   * Já chegam suavizados do JS, então aqui a leitura é direta.
+   */
+  .marcos li {
+    position: relative;
+    opacity: var(--m, 1);
+    will-change: opacity;
+  }
+
+  .tique {
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    width: 1px;
+    height: 0.9rem;
+    background: var(--dourado);
+    transform: scale(calc(0.6 + 0.4 * var(--m, 1)));
+    transform-origin: center bottom;
+    /* Brilho discreto que acende junto com o marco. */
+    box-shadow: 0 0 calc(10px * var(--m, 0)) rgba(216, 176, 106, calc(0.55 * var(--m, 0)));
+    will-change: transform;
+  }
+
+  /* Escala de momento: a seção agora é uma parada inteira da página,
+     não mais uma faixa no rodapé do hero. */
+  .valor {
+    display: block;
+    font-family: var(--serifa-titulo);
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    letter-spacing: 0.06em;
+    color: var(--dourado-claro);
+    opacity: var(--n, 1);
+    transform: translateY(calc(30px * (1 - var(--n, 1))));
+    will-change: transform, opacity;
+  }
+
+  .rotulo {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 1.12rem;
+    line-height: 1.35;
+    color: var(--texto-fraco);
+    opacity: var(--t, 1);
+    transform: translateY(calc(20px * (1 - var(--t, 1))));
+    filter: blur(calc(5px * (1 - var(--t, 1))));
+    will-change: transform, opacity, filter;
+  }
+
+  /* --f: só depois que o eixo inteiro terminou. */
+  figcaption {
+    margin-top: clamp(2.5rem, 7vh, 4.5rem);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--texto-fraco);
+    max-width: 62ch;
+    margin-inline: auto;
+    text-align: center;
+    text-wrap: balance;
+    opacity: var(--f, 1);
+    transform: translateY(calc(16px * (1 - var(--f, 1))));
+    will-change: transform, opacity;
+  }
+
+  /* No celular o eixo vira vertical: o tempo passa de cima para baixo. */
+  @media (max-width: 760px) {
+    .trilho {
+      height: 300vh;
+    }
+
+    /* O eixo vertical é bem mais alto que o horizontal: com o espaçamento do
+       desktop o bloco não cabe em 100vh e o palco cortava a ressalva. */
+    .palco {
+      padding: 4.5rem 0 1.5rem;
+    }
+
+    .linha {
+      margin-top: clamp(1.5rem, 3.5vh, 2.25rem);
+    }
+
+    .marcos {
+      gap: clamp(0.9rem, 2.4vh, 1.6rem);
+    }
+
+    .valor {
+      font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+    }
+
+    .rotulo {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+    }
+
+    figcaption {
+      margin-top: clamp(1rem, 2.4vh, 1.75rem);
+      font-size: 0.88rem;
+    }
+
+    .marcos {
+      grid-template-columns: 1fr;
+      gap: clamp(1.5rem, 4vh, 2.5rem);
+      padding: 0 0 0 1.75rem;
+      text-align: left;
+    }
+
+    .eixo {
+      top: 0.4rem;
+      bottom: 0.4rem;
+      left: 0;
+      right: auto;
+      width: 1px;
+      height: auto;
+      transform: scaleY(var(--p, 1));
+      transform-origin: center top;
+    }
+
+    .tique {
+      top: 0.6rem;
+      left: -1.75rem;
+      width: 0.9rem;
+      height: 1px;
+      transform-origin: left center;
+    }
+
+    figcaption {
+      margin-inline: 0;
+      text-align: left;
+    }
+  }
+
+  /* Tela baixa: o palco tem a altura da janela, então quem manda aqui é a
+     altura, não a largura. Sem isso a ressalva some em aparelho pequeno. */
+  @media (max-height: 760px) and (max-width: 760px) {
+    .palco {
+      padding: 4rem 0 1rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .olho {
+      margin-bottom: 0.5rem;
+    }
+
+    .valor {
+      font-size: 1.3rem;
+    }
+
+    .rotulo {
+      font-size: 0.95rem;
+    }
+
+    .linha {
+      margin-top: 1.25rem;
+    }
+
+    .marcos {
+      gap: 0.85rem;
+    }
+
+    figcaption {
+      margin-top: 0.9rem;
+      font-size: 0.84rem;
+    }
+  }
+
+  /*
+   * Movimento reduzido: sem pin e sem animação. A seção vira um bloco
+   * comum e tudo já aparece: as variáveis caem no valor padrão 1.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .trilho {
+      height: auto;
+    }
+
+    .palco {
+      position: static;
+      height: auto;
+      padding-block: clamp(3.5rem, 8vw, 6rem);
+    }
+  }
+</style>
+
+<script>
+  /*
+   * Converte a posição do trilho num progresso de 0 a 1 e distribui esse
+   * progresso entre os marcos. Só escreve variáveis CSS — nada de ler
+   * layout dentro do laço além do getBoundingClientRect do trilho.
+   */
+  const trilho = document.querySelector<HTMLElement>('[data-trilho]');
+
+  if (trilho && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const marcos = Array.from(trilho.querySelectorAll<HTMLElement>('.marcos li'));
+    const legenda = trilho.querySelector<HTMLElement>('figcaption');
+    const total = marcos.length;
+
+    const limitar = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
+    /** Equivalente ao power3.out do GSAP. */
+    const suave = (v: number) => 1 - Math.pow(1 - v, 3);
+    /** Equivalente ao expo.out — usado no traçado, que é o gesto principal. */
+    const expo = (v: number) => (v >= 1 ? 1 : 1 - Math.pow(2, -10 * v));
+
+    let pendente = false;
+
+    /** Fração da rolagem em que o eixo termina de ser traçado. */
+    const FIM = 0.72;
+    /** Quanto da rolagem cada marco leva para completar a entrada. */
+    const ENTRADA = 0.14;
+
+    function pintar() {
+      pendente = false;
+      if (!trilho) return;
+
+      const caixa = trilho.getBoundingClientRect();
+      const curso = trilho.offsetHeight - window.innerHeight;
+      const p = curso > 0 ? limitar(-caixa.top / curso) : 0;
+
+      /*
+       * O traçado é linear de propósito: numa animação presa ao scroll,
+       * quem dá o tempo é a mão do usuário. Suavizar o percurso inteiro
+       * descola o desenho do gesto — as curvas ficam nas entradas curtas,
+       * que é onde elas se sentem.
+       */
+      trilho.style.setProperty('--p', String(limitar(p / FIM)));
+
+      marcos.forEach((marco, i) => {
+        // O marco começa quando a linha chega na posição dele.
+        const inicio = (i / (total - 1)) * FIM;
+        const local = limitar((p - inicio) / ENTRADA);
+
+        // Marco, depois número, depois descrição — nessa ordem.
+        marco.style.setProperty('--m', String(expo(limitar(local / 0.4))));
+        marco.style.setProperty('--n', String(suave(limitar((local - 0.2) / 0.5))));
+        marco.style.setProperty('--t', String(suave(limitar((local - 0.45) / 0.55))));
+      });
+
+      // A ressalva só entra com o eixo inteiro pronto.
+      legenda?.style.setProperty('--f', String(suave(limitar((p - 0.88) / 0.12))));
+    }
+
+    function agendar() {
+      if (pendente) return;
+      pendente = true;
+      requestAnimationFrame(pintar);
+    }
+
+    addEventListener('scroll', agendar, { passive: true });
+    addEventListener('resize', agendar);
+    pintar();
+  }
+</script>

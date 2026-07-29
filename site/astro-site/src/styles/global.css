@@ -194,6 +194,36 @@ a.cartao:focus-visible {
   margin-bottom: 0;
 }
 
+/*
+ * O prazo que corre naquela situação. Ecoa o tique da linha do tempo do hero
+ * — é o mesmo elemento-assinatura repetido em escala menor.
+ * Cormorant e não Cinzel: são frases, não numerais.
+ */
+.relogio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-family: var(--serifa-corpo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
+
+/* margin-top = metade da entrelinha, para o traço casar com a primeira
+   linha mesmo quando o texto quebra em duas. */
+.relogio::before {
+  content: '';
+  width: 0.9rem;
+  height: 1px;
+  margin-top: 0.7em;
+  flex-shrink: 0;
+  background: var(--dourado);
+}
+
 .grade {
   display: grid;
   gap: 1.25rem;
@@ -216,6 +246,8 @@ a.cartao:focus-visible {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
+  /* Rótulo de botão nunca quebra em duas linhas. */
+  white-space: nowrap;
   cursor: pointer;
   transition: background 0.25s ease, color 0.25s ease;
 }
@@ -240,6 +272,27 @@ a.cartao:focus-visible {
 .botao:hover .filete,
 .botao:focus-visible .filete {
   background: rgba(5, 7, 10, 0.35);
+}
+
+/*
+ * CTA principal. A referência usa botão dourado preenchido, e o clique no
+ * WhatsApp é o gargalo declarado — então o contorno cede o lugar aqui.
+ */
+.botao--solido {
+  background: var(--dourado);
+  border-color: var(--dourado);
+  color: var(--preto);
+}
+
+.botao--solido .filete {
+  background: rgba(5, 7, 10, 0.35);
+}
+
+.botao--solido:hover,
+.botao--solido:focus-visible {
+  background: var(--dourado-claro);
+  border-color: var(--dourado-claro);
+  color: var(--preto);
 }
 
 .botao--discreto {
@@ -308,6 +361,36 @@ a.cartao:focus-visible {
   color: var(--dourado-claro);
 }
 
+/* ---------- revelação na rolagem ---------- */
+
+/*
+ * `data-revelar` anima o próprio elemento; `data-revelar-lista` escalona os
+ * filhos diretos. O estado inicial só existe depois que o script marca
+ * `.armado` — sem JavaScript nada fica escondido.
+ *
+ * Movimento discreto de propósito: quem chega aqui está com pressa, então a
+ * entrada acompanha a leitura em vez de disputar com ela.
+ */
+[data-revelar].armado,
+[data-revelar-lista].armado > * {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+[data-revelar].visivel,
+[data-revelar-lista].visivel > * {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.7, 0.3, 1),
+    transform 0.7s cubic-bezier(0.22, 0.7, 0.3, 1);
+}
+
+/* --i é o índice do filho, escrito pelo script. */
+[data-revelar-lista].visivel > * {
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
 /* ---------- acessibilidade ---------- */
 
 :focus-visible {
@@ -315,15 +398,27 @@ a.cartao:focus-visible {
   outline-offset: 3px;
 }
 
+/* Recortado em vez de jogado para fora da tela: posicionar em -9999px
+   alarga a área rolável do documento e cria estouro horizontal. */
 .pular {
   position: absolute;
-  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .pular:focus {
+  position: fixed;
   left: 1rem;
   top: 1rem;
   z-index: 100;
+  width: auto;
+  height: auto;
+  clip: auto;
+  clip-path: none;
   padding: 0.75rem 1rem;
   background: var(--preto);
   border: 1px solid var(--dourado);
@@ -344,10 +439,15 @@ a.cartao:focus-visible {
     scroll-behavior: auto;
   }
 
+  /* O delay também precisa zerar: sem isso, um elemento animado com
+     fill-mode "both" fica no estado inicial (invisível) durante a espera. */
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

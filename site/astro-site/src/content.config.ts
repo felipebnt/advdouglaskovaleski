@@ -34,7 +34,12 @@ const situacoes = defineCollection({
     descricao: z.string(),
     /** Define a ordem de exibição. Urgência primeiro. */
     ordem: z.number(),
-    urgente: z.boolean().default(false),
+    /**
+     * O prazo que corre nessa situação, em uma linha. Substitui a etiqueta
+     * "urgente": cada momento tem um relógio próprio, e isso é fato do
+     * procedimento, não enfeite. Precisa ser verdadeiro e verificável.
+     */
+    relogio: z.string(),
     mensagemWhatsapp: z.string(),
     keywords: z.array(z.string()).default([]),
     perguntas: z

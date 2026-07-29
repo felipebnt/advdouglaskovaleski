@@ -1,8 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import heroFoto from '../assets/hero.webp';
 import Base from '../layouts/Base.astro';
 import BotaoWhatsapp from '../components/BotaoWhatsapp.astro';
 import ChamadaFinal from '../components/ChamadaFinal.astro';
+import LinhaDoTempo from '../components/LinhaDoTempo.astro';
 import { ETAPAS, SITE } from '../consts';
 
 const situacoes = (await getCollection('situacoes')).sort(
@@ -16,34 +19,59 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
 
 <Base
   titulo="Advogado Criminalista no Rio de Janeiro"
-  tituloCompleto={`${SITE.nome} — Advogado Criminalista no Rio de Janeiro`}
+  tituloCompleto={`${SITE.nome} | Advogado Criminalista no Rio de Janeiro`}
   descricao={SITE.descricao}
 >
   <section class="hero fundo-topo">
-    <div class="container centro">
-      <p class="olho">Advocacia criminal • Rio de Janeiro</p>
-      <h1>Defesa criminal <span class="dourado">desde a primeira hora</span></h1>
-      <hr class="divisor" />
-      <p class="apoio medida">
-        A condução inicial de um caso criminal influencia todo o resto. Quando a
-        orientação técnica chega cedo, a defesa começa no lugar certo — e não
-        depois que o estrago já está no papel.
-      </p>
-      <div class="botoes centro">
-        <BotaoWhatsapp texto="Falar com advogado agora" />
-        <a class="botao botao--discreto" href="#situacoes">Ver situações</a>
+    <div class="container">
+      <div class="hero-grade">
+        <p class="pilula">Advocacia criminal • Rio de Janeiro</p>
+
+        <h1>Defesa criminal <span class="dourado">desde a primeira hora</span></h1>
+
+        <p class="apoio">
+          A condução inicial de um caso criminal influencia todo o resto. Quando
+          a orientação técnica chega cedo, a defesa começa no lugar certo, e não
+          depois que o estrago já está no papel.
+        </p>
+
+        <div class="hero-figura">
+          <Image
+            class="retrato"
+            src={heroFoto}
+            alt="Advogado de terno, com a balança da justiça ao fundo"
+            widths={[420, 640, 900]}
+            sizes="(max-width: 980px) 78vw, 38vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+
+        <a class="selo" href="/canais-oficiais/">
+          <span class="selo-marca" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </span>
+          <span>
+            <strong>Canais oficiais</strong>
+            Confirme antes de enviar informação ou fazer qualquer pagamento.
+          </span>
+        </a>
+
+        <div class="botoes acao">
+          <BotaoWhatsapp texto="Falar no WhatsApp" variante="solido" />
+          <a class="botao botao--discreto" href="#situacoes">Ver situações</a>
+        </div>
       </div>
-      <ul class="selos">
-        <li>Atendimento sigiloso</li>
-        <li>Análise técnica do caso</li>
-        <li>Contato direto com o advogado</li>
-      </ul>
     </div>
   </section>
 
+  <LinhaDoTempo />
+
   <section class="secao" id="situacoes">
     <div class="container">
-      <div class="centro">
+      <div class="centro" data-revelar>
         <p class="olho">Por onde você chegou aqui</p>
         <h2>Em que situação você está</h2>
         <hr class="divisor" />
@@ -53,16 +81,13 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
         </p>
       </div>
 
-      <div class="grade">
+      <div class="grade" data-revelar-lista>
         {
           situacoes.map((s) => (
             <a class="cartao" href={`/situacoes/${s.id}/`}>
-              {s.data.urgente && <span class="etiqueta">Urgente</span>}
+              <span class="relogio">{s.data.relogio}</span>
               <h3>{s.data.chamada}</h3>
               <p>{s.data.resumo}</p>
-              <span class="seta" aria-hidden="true">
-                Entender o que fazer →
-              </span>
             </a>
           ))
         }
@@ -72,13 +97,13 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
 
   <section class="secao" id="processo">
     <div class="container">
-      <div class="centro">
+      <div class="centro" data-revelar>
         <p class="olho">Como funciona</p>
         <h2>Do primeiro contato ao acompanhamento</h2>
         <hr class="divisor" />
       </div>
 
-      <ol class="etapas">
+      <ol class="etapas" data-revelar-lista>
         {
           ETAPAS.map((etapa) => (
             <li>
@@ -94,14 +119,14 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
 
   <section class="secao" id="sobre">
     <div class="container">
-      <div class="sobre">
+      <div class="sobre" data-revelar-lista>
         <div>
           <p class="olho">Quem atende</p>
           <h2>Douglas Kovaleski</h2>
           <hr class="divisor esquerda" />
           <p>
             Advogado atuante em direito criminal e empresarial no Rio de Janeiro.
-            Quem fala com o escritório fala comigo — não há intermediário entre o
+            Quem fala com o escritório fala comigo. Não há intermediário entre o
             cliente e quem conduz o caso.
           </p>
           <p>
@@ -110,7 +135,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
             medo e sem informação, aquilo que vai pesar até o fim.
           </p>
           <p>
-            Nenhum resultado é prometido aqui — isso a ética da advocacia veda, e
+            Nenhum resultado é prometido aqui. Isso a ética da advocacia veda, e
             com razão. O que existe é condução técnica, sigilo e clareza sobre o
             que está acontecendo no seu caso.
           </p>
@@ -127,7 +152,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
             <li>Defesa em processo criminal e recursos</li>
             <li>Medidas protetivas e cautelares</li>
             <li>Execução penal, progressão e livramento</li>
-            <li>Ato infracional — ECA e DEGASE</li>
+            <li>Ato infracional (ECA e DEGASE)</li>
             <li>Assessoria jurídica preventiva a empresas</li>
           </ul>
         </aside>
@@ -139,7 +164,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     artigos.length > 0 && (
       <section class="secao" id="orientacao">
         <div class="container">
-          <div class="centro">
+          <div class="centro" data-revelar>
             <p class="olho">Orientação</p>
             <h2>Publicações recentes</h2>
             <hr class="divisor" />
@@ -149,7 +174,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
             </p>
           </div>
 
-          <div class="grade">
+          <div class="grade" data-revelar-lista>
             {artigos.map((artigo) => (
               <a class="cartao" href={`/blog/${artigo.id}/`}>
                 <time datetime={artigo.data.publishedAt.toISOString()}>
@@ -183,46 +208,317 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
 
 <style>
   .hero {
-    padding-block: clamp(4rem, 12vw, 8rem);
+    padding-block: clamp(3rem, 7vw, 5rem) clamp(3.5rem, 8vw, 5.5rem);
     border-bottom: 1px solid var(--dourado-tenue);
+    /* Contém o halo da figura, que se espalha além da coluna de propósito. */
+    overflow: hidden;
   }
 
-  .selos {
-    list-style: none;
-    margin: 2.75rem 0 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem 2rem;
-    font-family: var(--serifa-titulo);
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--texto-fraco);
+  /*
+   * Três colunas como na referência: texto à esquerda, retrato ao centro,
+   * card + CTA à direita. As áreas nomeadas existem para o celular poder
+   * reordenar (foto → selo → título → texto → CTA) sem duplicar markup.
+   */
+  .hero-grade {
+    display: grid;
+    grid-template-columns: 1.26fr 0.98fr 0.88fr;
+    grid-template-areas:
+      'pilula figura selo'
+      'titulo figura selo'
+      'texto  figura acao';
+    align-items: center;
+    /* Vão menor que o padrão: a coluna do meio precisa da folga para o retrato
+       crescer, e a da direita para o botão caber numa linha só. */
+    column-gap: clamp(1rem, 2.2vw, 2rem);
+    row-gap: 0;
   }
 
-  .etiqueta {
+  .pilula {
+    grid-area: pilula;
+  }
+  .hero-grade h1 {
+    grid-area: titulo;
+  }
+  .hero-grade > .apoio {
+    grid-area: texto;
+  }
+  .hero-figura {
+    grid-area: figura;
+  }
+  .selo {
+    grid-area: selo;
+    align-self: end;
+  }
+  .acao {
+    grid-area: acao;
+    align-self: start;
+  }
+
+  /* Pílula de contexto: mesma linguagem dos botões, em escala menor. */
+  .pilula {
     display: inline-block;
-    font-family: var(--serifa-titulo);
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--dourado);
+    margin: 0 0 1.5rem;
+    padding: 0.4rem 1rem;
     border: 1px solid var(--dourado-fraco);
     border-radius: 999px;
-    padding: 0.2rem 0.7rem;
-    margin-bottom: 0.9rem;
-  }
-
-  .seta {
-    display: block;
-    margin-top: 1.1rem;
     font-family: var(--serifa-titulo);
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--dourado);
+  }
+
+  /*
+   * O h1 do hero dispensa o filete: o eixo de prazos é a régua da seção.
+   * Corpo menor que o padrão global — numa coluna de três, o tamanho cheio
+   * quebrava o título em cinco linhas.
+   */
+  .hero h1 {
+    font-size: clamp(1.7rem, 2.7vw, 2.4rem);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-grade > .apoio {
+    max-width: 42ch;
+    margin-bottom: 0;
+  }
+
+  .acao {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  /*
+   * O retrato transborda a própria coluna para ganhar presença, como na
+   * referência. Fica atrás do texto — o `overflow: hidden` do hero apara
+   * o que passa da seção.
+   */
+  .hero-figura {
+    position: relative;
+    align-self: end;
+    z-index: 0;
+    width: 122%;
+    margin-inline: -11%;
+  }
+
+  .pilula,
+  .hero-grade h1,
+  .hero-grade > .apoio,
+  .selo,
+  .acao {
+    position: relative;
+    z-index: 1;
+  }
+
+  /*
+   * Entrada do hero. Roda no carregamento, não na rolagem: aqui não há o que
+   * esperar. É CSS puro, sem JavaScript, então nada depende de script para
+   * aparecer. Com `prefers-reduced-motion` a regra global zera duração e
+   * atraso, e tudo nasce pronto.
+   *
+   * A ordem coloca o CTA cedo. O botão do cabeçalho e o flutuante ficam de
+   * fora da cascata: quem chega com pressa tem sempre um caminho imediato
+   * para o WhatsApp, sem esperar animação nenhuma.
+   */
+  @keyframes heroEntra {
+    from {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes heroFoto {
+    from {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .hero-figura {
+    animation: heroFoto 1.1s cubic-bezier(0.22, 0.7, 0.3, 1) both;
+  }
+
+  .pilula,
+  .hero-grade h1,
+  .hero-grade > .apoio,
+  .acao,
+  .selo {
+    animation: heroEntra 0.75s cubic-bezier(0.22, 0.7, 0.3, 1) both;
+  }
+
+  .pilula {
+    animation-delay: 0.1s;
+  }
+  .hero-grade h1 {
+    animation-delay: 0.18s;
+  }
+  .hero-grade > .apoio {
+    animation-delay: 0.28s;
+  }
+  .acao {
+    animation-delay: 0.36s;
+  }
+  .selo {
+    animation-delay: 0.48s;
+  }
+
+  /*
+   * Halo atrás do recorte, para a figura não flutuar solta no fundo.
+   * É gradiente, não sombra — o design-guide veda sombra.
+   */
+  .hero-figura::before {
+    content: '';
+    position: absolute;
+    inset: 8% -6% -2%;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      rgba(22, 48, 77, 0.95) 0%,
+      rgba(14, 32, 54, 0.5) 45%,
+      transparent 70%
+    );
+  }
+
+  /*
+   * A base do recorte se dissolve no fundo em vez de cortar seco.
+   * Máscara e não faixa sobreposta: assim funde com o gradiente que
+   * estiver atrás, sem precisar acertar a cor exata daquela altura.
+   */
+  .retrato {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 68%,
+      rgba(0, 0, 0, 0.55) 86%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      #000 0%,
+      #000 68%,
+      rgba(0, 0, 0, 0.55) 86%,
+      transparent 100%
+    );
+  }
+
+  .selo {
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--dourado-fraco);
+    border-radius: var(--raio);
+    /* Sem backdrop-filter: sobre fundo quase opaco ele não muda nada, e é
+       fonte conhecida de falha de composição na rolagem em celular — o card
+       vira um bloco sólido sem conteúdo. */
+    background: rgba(9, 16, 28, 0.94);
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: border-color 0.25s ease;
+  }
+
+  .selo:hover,
+  .selo:focus-visible {
+    border-color: var(--dourado);
+  }
+
+  .selo strong {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-family: var(--serifa-titulo);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--texto);
+  }
+
+  .selo-marca {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border: 1px solid var(--dourado-fraco);
+    border-radius: 50%;
+    color: var(--dourado);
+  }
+
+  /* Tablet: o card e o CTA descem para baixo do texto, retrato ao lado. */
+  @media (max-width: 1100px) and (min-width: 861px) {
+    .hero-grade {
+      grid-template-columns: 1fr 0.95fr;
+      grid-template-areas:
+        'pilula figura'
+        'titulo figura'
+        'texto  figura'
+        'selo   figura'
+        'acao   figura';
+      row-gap: 1.25rem;
+    }
+
+    .selo,
+    .acao {
+      align-self: start;
+    }
+  }
+
+  /* Celular: a ordem do mockup — foto, selo, título, texto, CTA. */
+  @media (max-width: 860px) {
+    .hero-grade {
+      grid-template-columns: 1fr;
+      /* O card desce para depois do CTA: entre a foto e o título ele cortava
+         o hero ao meio e lia como uma barra solta. */
+      grid-template-areas:
+        'figura'
+        'pilula'
+        'titulo'
+        'texto'
+        'acao'
+        'selo';
+      row-gap: 1.5rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .hero-figura {
+      max-width: 20rem;
+      margin-bottom: -0.5rem;
+    }
+
+    .hero-grade h1,
+    .hero-grade > .apoio {
+      margin-bottom: 0;
+    }
+
+    .selo {
+      max-width: 22rem;
+      text-align: left;
+    }
+
+    .acao {
+      width: 100%;
+      max-width: 22rem;
+      margin-top: 0;
+    }
   }
 
   .etapas {

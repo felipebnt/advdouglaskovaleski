@@ -23,7 +23,7 @@ interface Props {
 
 const { titulo, descricao, tituloCompleto, schema, noindex = false } = Astro.props;
 
-const title = tituloCompleto ?? `${titulo} | ${SITE.nome} — Advogado Criminalista RJ`;
+const title = tituloCompleto ?? `${titulo} | ${SITE.nome}, advogado criminalista no RJ`;
 const canonica = new URL(Astro.url.pathname, Astro.site ?? SITE.url);
 
 /**
@@ -33,7 +33,7 @@ const canonica = new URL(Astro.url.pathname, Astro.site ?? SITE.url);
 const perfil = {
   '@context': 'https://schema.org',
   '@type': 'Attorney',
-  name: `${SITE.assinatura} — ${SITE.nome}`,
+  name: `${SITE.assinatura} | ${SITE.nome}`,
   description: SITE.descricao,
   url: SITE.url,
   telephone: `+${CONTATO.whatsappNumero}`,
@@ -81,7 +81,7 @@ const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema])
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Orientação — Kovaleski Advogados" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Orientação | Kovaleski Advogados" href="/rss.xml" />
 
     {
       blocos.map((bloco) => (
@@ -98,5 +98,46 @@ const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema])
     </main>
     <Rodape />
     <BotaoFlutuante />
+
+    <script>
+      /*
+       * Motor de revelação do site. Um observador só, e cada alvo sai da
+       * observação depois de aparecer — nada fica rodando durante a rolagem.
+       */
+      const alvos = document.querySelectorAll<HTMLElement>(
+        '[data-revelar], [data-revelar-lista]'
+      );
+
+      if (alvos.length) {
+        const parado = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Índice de cada filho, para o escalonamento em CSS.
+        alvos.forEach((alvo) => {
+          if (!alvo.hasAttribute('data-revelar-lista')) return;
+          Array.from(alvo.children).forEach((filho, i) => {
+            (filho as HTMLElement).style.setProperty('--i', String(i));
+          });
+        });
+
+        if (parado) {
+          alvos.forEach((alvo) => alvo.classList.add('visivel'));
+        } else {
+          alvos.forEach((alvo) => alvo.classList.add('armado'));
+
+          const observador = new IntersectionObserver(
+            (entradas) => {
+              entradas.forEach((entrada) => {
+                if (!entrada.isIntersecting) return;
+                entrada.target.classList.add('visivel');
+                observador.unobserve(entrada.target);
+              });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+          );
+
+          alvos.forEach((alvo) => observador.observe(alvo));
+        }
+      }
+    </script>
   </body>
 </html>
