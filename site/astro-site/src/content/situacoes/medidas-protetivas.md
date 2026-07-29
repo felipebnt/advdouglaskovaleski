@@ -4,7 +4,7 @@ chamada: 'Tem uma medida protetiva contra mim'
 resumo: 'Medida protetiva não é condenação, mas o descumprimento leva à prisão. Existe defesa técnica dos dois lados dessa história.'
 descricao: 'Medida protetiva de urgência no Rio de Janeiro: o que ela proíbe, o que acontece em caso de descumprimento e como funciona a defesa técnica.'
 ordem: 5
-urgente: true
+relogio: 'Vale desde a notificação'
 mensagemWhatsapp: 'Olá, doutor. Preciso de orientação sobre uma medida protetiva.'
 keywords:
   - medida protetiva advogado rj
@@ -22,7 +22,7 @@ perguntas:
 
 Chega uma notificação e o mundo muda de um dia para o outro.
 
-Não pode voltar em casa. Não pode se aproximar. Não pode entrar em contato — nem por mensagem, nem por terceiro, nem para tratar de assunto prático.
+Não pode voltar em casa. Não pode se aproximar. Não pode entrar em contato: nem por mensagem, nem por terceiro, nem para tratar de assunto prático.
 
 E vem junto a sensação de já ter sido julgado sem ter falado nada.
 
@@ -56,7 +56,7 @@ Se a outra parte procura você, a resposta certa é uma só: não responda e com
 
 Como a medida é decidida em urgência, ela nasce sem que o outro lado tenha sido ouvido.
 
-Existe caminho técnico para apresentar a versão de quem foi notificado, requerer revisão ou ajuste do que foi determinado, e resolver pela via correta as questões práticas — retirada de pertences, convivência com os filhos, uso do imóvel.
+Existe caminho técnico para apresentar a versão de quem foi notificado, requerer revisão ou ajuste do que foi determinado, e resolver pela via correta as questões práticas: retirada de pertences, convivência com os filhos, uso do imóvel.
 
 Isso é defesa. Não é enfrentamento de quem pediu proteção.
 
@@ -66,7 +66,7 @@ Se você pediu a medida e ela não está sendo cumprida, ou se precisa entender 
 
 ## Onde entra o advogado
 
-Primeiro, entender exatamente o que foi determinado — porque cada medida tem alcance próprio, e agir por suposição é o que causa o descumprimento.
+Primeiro, entender exatamente o que foi determinado, porque cada medida tem alcance próprio, e agir por suposição é o que causa o descumprimento.
 
 Depois, orientar o dia a dia: o que pode, o que não pode, como resolver o que ficou pendente sem violar a decisão.
 

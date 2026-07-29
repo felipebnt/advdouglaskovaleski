@@ -26,7 +26,7 @@ Não é um julgamento. Ninguém vai discutir ali se a pessoa é culpada ou inoce
 
 O que se decide é outra coisa, e é decisivo: se a prisão foi legal, se houve violência ou maus-tratos na abordagem, e se a pessoa permanece presa ou responde ao processo em liberdade.
 
-Os caminhos possíveis são três. Liberdade provisória, com ou sem condições. Aplicação de medidas cautelares — comparecimento periódico em juízo, recolhimento noturno, monitoramento eletrônico, proibição de frequentar certos lugares. Ou conversão do flagrante em prisão preventiva, e a pessoa continua presa enquanto o caso corre.
+Os caminhos possíveis são três. Liberdade provisória, com ou sem condições. Aplicação de medidas cautelares: comparecimento periódico em juízo, recolhimento noturno, monitoramento eletrônico, proibição de frequentar certos lugares. Ou conversão do flagrante em prisão preventiva, e a pessoa continua presa enquanto o caso corre.
 
 É a primeira vez que um juiz olha aquele caso. E, dependendo do que sair dali, o processo inteiro segue de um jeito ou de outro.
 
@@ -44,7 +44,7 @@ E papel, no meio da madrugada, quem tem é a família.
 
 Comece pelo básico: documento de identidade e CPF da pessoa presa.
 
-Depois, comprovante de residência — conta de luz, água ou telefone, ainda que esteja no nome de outro morador, desde que dê para demonstrar a convivência.
+Depois, comprovante de residência: conta de luz, água ou telefone, ainda que esteja no nome de outro morador, desde que dê para demonstrar a convivência.
 
 Comprovação de trabalho: carteira assinada, contrato, declaração do empregador, comprovante de atividade autônoma, registro de MEI. Se houver risco concreto de perder o emprego pela ausência, uma declaração nesse sentido também ajuda.
 
@@ -52,7 +52,7 @@ Se a pessoa estuda, declaração de matrícula ou comprovante de frequência.
 
 Se há filhos menores, certidão de nascimento e comprovação de que ela participa do sustento ou dos cuidados.
 
-E, havendo problema de saúde, relatório médico, receita ou comprovante de tratamento em andamento — isso é relevante tanto para a decisão quanto para as condições da custódia.
+E, havendo problema de saúde, relatório médico, receita ou comprovante de tratamento em andamento. Isso é relevante tanto para a decisão quanto para as condições da custódia.
 
 Não é preciso ter tudo. É preciso ter o que existir, e ter rápido.
 
@@ -60,7 +60,7 @@ Não é preciso ter tudo. É preciso ter o que existir, e ter rápido.
 
 A primeira é tentar explicar o caso por conta própria. Nem por telefone, nem na recepção da delegacia, nem "só para esclarecer um detalhe". Quem está preso tem direito de permanecer calado, e o silêncio não pode ser usado contra ninguém. Explicação dada no susto vira contradição meses depois.
 
-A segunda é acreditar em quem promete resultado. Nesse momento aparecem pessoas garantindo soltura mediante pagamento imediato, quase sempre por um número que ninguém conhece. Nenhum advogado sério garante desfecho — e no Rio de Janeiro esse golpe é frequente o bastante para merecer atenção. Na dúvida, confirme os [canais oficiais](/canais-oficiais/) antes de pagar qualquer coisa.
+A segunda é acreditar em quem promete resultado. Nesse momento aparecem pessoas garantindo soltura mediante pagamento imediato, quase sempre por um número que ninguém conhece. Nenhum advogado sério garante desfecho, e no Rio de Janeiro esse golpe é frequente o bastante para merecer atenção. Na dúvida, confirme os [canais oficiais](/canais-oficiais/) antes de pagar qualquer coisa.
 
 ## O relógio começou antes do telefonema
 

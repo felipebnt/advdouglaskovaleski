@@ -4,7 +4,7 @@ chamada: 'Virei réu em um processo'
 resumo: 'Denúncia recebida, ação penal em curso. Cada prazo perdido nessa fase é um argumento que a defesa não usa mais.'
 descricao: 'Denúncia recebida e processo criminal em andamento no Rio de Janeiro? Entenda as fases da ação penal, o papel da resposta à acusação e dos recursos.'
 ordem: 4
-urgente: false
+relogio: 'Prazo próprio em cada fase'
 mensagemWhatsapp: 'Olá, doutor. Sou réu em um processo criminal e preciso de defesa.'
 keywords:
   - advogado defesa processo criminal rj
@@ -42,7 +42,7 @@ Por fim, a **sentença**. E dela cabe recurso.
 
 Cada uma dessas etapas é uma porta que abre e fecha.
 
-Testemunha que não foi arrolada na resposta à acusação, tese que não foi levantada no momento certo, prova que não foi requerida na instrução — tudo isso vira argumento que a defesa simplesmente não tem mais como usar.
+Testemunha que não foi arrolada na resposta à acusação, tese que não foi levantada no momento certo, prova que não foi requerida na instrução: tudo isso vira argumento que a defesa simplesmente não tem mais como usar.
 
 Não é formalidade excessiva. É a estrutura do processo: cada fase tem sua função e o que passou, passou.
 
@@ -66,11 +66,11 @@ Se você está insatisfeito com o acompanhamento ou simplesmente não está cons
 
 ## Onde entra o advogado
 
-O trabalho começa pela leitura integral dos autos — o que a acusação sustenta, que prova existe de fato e qual o estado atual do processo.
+O trabalho começa pela leitura integral dos autos: o que a acusação sustenta, que prova existe de fato e qual o estado atual do processo.
 
 A partir daí, definimos a estratégia para aquele caso concreto, atuamos nas fases que ainda estão abertas e mantemos você informado do que está acontecendo, sem juridiquês.
 
-Compromisso com atuação técnica. Nunca com desfecho — isso ninguém honesto promete.
+Compromisso com atuação técnica. Nunca com desfecho, que ninguém honesto promete.
 
 ## Se você tem um processo em andamento
 

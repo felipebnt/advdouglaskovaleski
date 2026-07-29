@@ -9,7 +9,7 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: `Orientação — ${SITE.assinatura}`,
+    title: `Orientação | ${SITE.assinatura}`,
     description:
       'Textos sobre direito criminal para quem precisa entender o que está acontecendo.',
     site: context.site ?? SITE.url,

@@ -1,10 +1,10 @@
 ---
 titulo: 'Intimação para depor na delegacia'
 chamada: 'Recebi uma intimação para depor'
-resumo: 'Comparecer é uma coisa. Falar é outra. O que você diz em depoimento fica no processo até o fim — e não tem como voltar atrás.'
+resumo: 'Comparecer é uma coisa. Falar é outra. O que você diz em depoimento fica no processo até o fim, e não tem como voltar atrás.'
 descricao: 'Recebeu intimação para depor na delegacia no Rio de Janeiro? Entenda a diferença entre comparecer e falar, e por que ir acompanhado de advogado muda o depoimento.'
 ordem: 2
-urgente: true
+relogio: 'Até a data da intimação'
 mensagemWhatsapp: 'Olá, doutor. Recebi uma intimação para depor e preciso de orientação.'
 keywords:
   - intimação para depor na delegacia
@@ -13,7 +13,7 @@ keywords:
   - fui intimado o que fazer
 perguntas:
   - pergunta: 'Sou obrigado a comparecer quando recebo uma intimação?'
-    resposta: 'A intimação é uma convocação formal e ignorá-la pode gerar consequências, incluindo condução coercitiva em algumas hipóteses. O caminho é comparecer — mas comparecer não obriga ninguém a responder tudo.'
+    resposta: 'A intimação é uma convocação formal e ignorá-la pode gerar consequências, incluindo condução coercitiva em algumas hipóteses. O caminho é comparecer, mas comparecer não obriga ninguém a responder tudo.'
   - pergunta: 'Posso ir acompanhado de advogado ao depoimento?'
     resposta: 'Sim. O direito de ser assistido por advogado existe também na fase de investigação, e vale tanto para quem é investigado quanto para quem é chamado como testemunha.'
   - pergunta: 'Ficar calado pode ser usado contra mim?'
@@ -24,7 +24,7 @@ Minha avó dizia que boca fechada não entra mosca.
 
 Na delegacia, esse ditado faz ainda mais sentido.
 
-Chegou uma intimação em casa e a reação mais comum é essa: "vou lá explicar tudo e resolver". Quem não fez nada quer falar. É natural. O problema é que depoimento não é conversa — é peça de processo.
+Chegou uma intimação em casa e a reação mais comum é essa: "vou lá explicar tudo e resolver". Quem não fez nada quer falar. É natural. O problema é que depoimento não é conversa. É peça de processo.
 
 ## Comparecer e falar são coisas diferentes
 
@@ -34,7 +34,7 @@ Então sim, você comparece.
 
 Mas comparecer não significa responder a tudo. O direito ao silêncio está na Constituição, vale desde a fase de investigação e **não pode ser usado contra você**. Não é confissão, não é indício, não é nada além do exercício de um direito.
 
-Essa distinção — ir sim, falar depende — é o ponto que mais gera confusão.
+Essa distinção, ir sim e falar depende, é o ponto que mais gera confusão.
 
 ## Por que o que você diz pesa tanto
 
@@ -54,7 +54,7 @@ Não converse sobre o assunto por mensagem com outras pessoas envolvidas. Conver
 
 Não leve documento nenhum por conta própria antes de entender o que está sendo apurado.
 
-E procure orientação antes da data — não no dia, com a intimação na mão na porta da delegacia.
+E procure orientação antes da data, não no dia, com a intimação na mão na porta da delegacia.
 
 ## Onde entra o advogado
 

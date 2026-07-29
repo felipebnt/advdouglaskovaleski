@@ -1,10 +1,10 @@
 ---
-titulo: 'Adolescente apreendido — ECA e DEGASE'
+titulo: 'Adolescente apreendido: ECA e DEGASE'
 chamada: 'Apreenderam um adolescente da família'
 resumo: 'Adolescente não responde a processo criminal, responde a ato infracional. Regras próprias, prazos próprios e uma audiência que acontece rápido.'
 descricao: 'Adolescente apreendido no Rio de Janeiro? Entenda o procedimento do ECA, o papel do DEGASE, as medidas socioeducativas e o que a família deve fazer.'
 ordem: 7
-urgente: true
+relogio: 'Internação provisória: 45 dias'
 mensagemWhatsapp: 'Olá, doutor. Um adolescente da minha família foi apreendido e preciso de ajuda.'
 keywords:
   - advogado eca degase rio de janeiro
@@ -32,13 +32,13 @@ Quem tem entre 12 e 18 anos não responde a processo criminal. Responde por **at
 
 Não é a mesma coisa com outro nome. É outro sistema: prazos diferentes, autoridades diferentes, consequências diferentes.
 
-O adolescente não é preso — é **apreendido**. Não recebe pena — recebe **medida socioeducativa**. E o processo corre em segredo de justiça, justamente para proteger quem está sendo apurado.
+O adolescente não é preso, é **apreendido**. Não recebe pena, recebe **medida socioeducativa**. E o processo corre em segredo de justiça, justamente para proteger quem está sendo apurado.
 
 ## O caminho, na prática
 
 Depois da apreensão, o adolescente é apresentado ao Ministério Público para a oitiva informal.
 
-Dali podem sair caminhos distintos: o arquivamento, a remissão — uma forma de encerramento, que pode vir acompanhada ou não de medida — ou a representação, que dá início ao procedimento perante o juiz.
+Dali podem sair caminhos distintos: o arquivamento, a remissão, que é uma forma de encerramento e pode vir acompanhada ou não de medida, ou a representação, que dá início ao procedimento perante o juiz.
 
 Havendo internação provisória, ela tem prazo máximo de 45 dias. É um prazo curto, e ele corre desde o início.
 
@@ -48,7 +48,7 @@ No Rio de Janeiro, o cumprimento das medidas de internação e semiliberdade fic
 
 Vão da mais branda à mais grave: advertência, obrigação de reparar o dano, prestação de serviços à comunidade, liberdade assistida, semiliberdade e internação.
 
-A internação é a mais gravosa e, pela lei, é excepcional — cabível apenas nas hipóteses previstas e quando não houver outra medida adequada.
+A internação é a mais gravosa e, pela lei, é excepcional, cabível apenas nas hipóteses previstas e quando não houver outra medida adequada.
 
 Ela não tem prazo fixado na sentença. É reavaliada a cada seis meses no máximo, não pode passar de três anos e cessa compulsoriamente aos 21 anos.
 
@@ -68,7 +68,7 @@ E mantenha o contato: o direito à convivência familiar é garantido pelo Estat
 
 Acompanhar desde a oitiva informal, com acesso ao que está sendo apurado.
 
-Sustentar, com os documentos que a família reuniu, a adequação da medida ao caso concreto — porque a lei manda considerar as circunstâncias e a capacidade de cumprimento, não apenas o fato.
+Sustentar, com os documentos que a família reuniu, a adequação da medida ao caso concreto, porque a lei manda considerar as circunstâncias e a capacidade de cumprimento, não apenas o fato.
 
 E seguir presente nas reavaliações, que é onde a medida efetivamente se discute ao longo do tempo.
 
