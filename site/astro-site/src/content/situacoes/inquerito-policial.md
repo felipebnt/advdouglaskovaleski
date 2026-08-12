@@ -3,7 +3,7 @@ titulo: 'Inquérito policial em andamento'
 chamada: 'Estou sendo investigado'
 resumo: 'O inquérito é a fase em que a acusação é montada. Advogado só na hora da denúncia é advogado chamado tarde.'
 descricao: 'Está sendo investigado em inquérito policial no Rio de Janeiro? Entenda como funciona a fase de investigação e por que a defesa começa antes da denúncia.'
-ordem: 4
+ordem: 5
 relogio: 'Enquanto a investigação corre'
 mensagemWhatsapp: 'Olá, doutor. Estou sendo investigado em um inquérito e preciso de orientação.'
 keywords:

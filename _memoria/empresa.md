@@ -2,15 +2,15 @@
 
 > Memória central do negócio. O Claude lê esse arquivo antes de cada resposta.
 
-**Nome:** Douglas Kovaleski (marca pessoal). Assina também como Kovaleski Advogados.
+**Nome:** Kovaleski Advogados é a marca pública desde 12/08/2026 (antes, o cabeçalho e o rodapé do site assinavam como "Douglas Kovaleski"). Douglas Kovaleski é o advogado à frente do escritório, e o nome dele continua em título de página e no schema.org, onde a autoridade pessoal importa.
 **Inscrição:** OAB/RJ 249.333, confirmada por ele em 12/08/2026. Toda peça de publicidade deve exibir esse número (Provimento 205/2021 do CFOB).
 **Negócio:** Advocacia — Direito Criminal e Empresarial.
 **O que faz:** Defesa criminal com estratégia, sigilo e resposta rápida, no Rio de Janeiro. Atende urgência (flagrante, custódia, intimação) e também assessoria jurídica preventiva para empresários e empresas.
-**Perfil:** Solopreneur / marca pessoal.
+**Perfil:** Escritório com equipe. Douglas confirmou em 12/08/2026 que tem parceiros trabalhando com ele (função e número não informados) e que a intenção é crescer, com o máximo possível de imagem de estrutura de escritório. O MazyOS segue instalado como perfil solopreneur/marca pessoal (ver `CLAUDE.md`) — vale revisar esse rótulo se a equipe continuar crescendo.
 **Atende clientes:**
 - **Criminal (carro-chefe):** pessoa física em situação urgente no RJ — familiar preso em flagrante, pessoa intimada a depor, investigado em inquérito, réu em processo criminal, execução penal (progressão, liberdade, remição) e família de adolescente em ECA/DEGASE. Quem procura está com medo e com pressa; a decisão de contratar acontece em horas, não em semanas.
 - **Empresarial:** empresários e empresas que querem segurança na tomada de decisão, prevenção de risco e defesa de patrimônio. O enquadramento dado pelo cliente em 11/08/2026: escritório **full service** para o empresário, com foco em advocacia **preventiva**, dando apoio jurídico contínuo à empresa, mantendo a organização e mitigando risco. Quando o problema acontece mesmo assim, o mesmo escritório faz a representação no processo.
-**Equipe:** Sozinho. Atendimento direto com o advogado, sem intermediário — isso é argumento de venda, não limitação.
+**Equipe:** Não é advogado autônomo trabalhando sozinho — tem parceiros. Evitar "eu trabalho sozinho" ou equivalente em qualquer peça nova. O atendimento direto continua sendo argumento de venda, só que reformulado: quem procura fala com quem conduz o caso, não com central de atendimento nem com intermediário.
 **Ferramentas:**
 - WhatsApp (21) 99026-7742 — principal porta de entrada
 - Instagram [@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)
@@ -24,7 +24,9 @@
 ## Contexto adicional
 
 - O site comunica as **duas áreas** desde 11/08/2026. O empresarial ganhou página própria em `/empresarial/`, entrada no menu, coluna no rodapé e link no cartão de áreas da home. O criminal segue sendo o carro-chefe e ocupa a home inteira.
-- A assinatura pública ainda diz "Advocacia Criminal no Rio de Janeiro" (rodapé e títulos das páginas). Ficou estreita depois que o empresarial entrou, mas mudar a linha de posicionamento é decisão do Douglas.
+- A marca pública mudou em 12/08/2026: cabeçalho e rodapé do site (e o design-guide, pra valer em qualquer peça nova) assinam como "Kovaleski Advogados" / "Advocacia Criminal e Empresarial", no lugar do nome pessoal "Douglas Kovaleski" / "Advocacia Criminal". Decisão dele, para reforçar leitura de escritório, não de advogado autônomo.
+- A foto do hero (`site/astro-site/src/assets/hero.webp`) perdeu a balança da justiça que ficava atrás dele, a pedido dele em 12/08/2026 ("acho que vai ficar mais leve"). Não reintroduzir esse elemento em peças novas.
+- A grade de situações no site tem 9 cartões, não 8: entrou "Atendimento em delegacia", que estava na lista dele e não tinha página própria.
 - O WhatsApp é o **mesmo** para as duas áreas. O empresário e a família de alguém preso caem na mesma caixa de entrada, com mensagem pré-preenchida diferente mas número igual. Ainda não foi decidido se vale separar.
 - Já houve golpista se passando pelo escritório — por isso os canais oficiais são reforçados publicamente. Qualquer material que peça contato deve apontar para os canais oficiais acima.
 - Fluxo de atendimento divulgado: (1) contato pelo WhatsApp → (2) análise técnica do cenário → (3) estratégia para o caso concreto → (4) acompanhamento.

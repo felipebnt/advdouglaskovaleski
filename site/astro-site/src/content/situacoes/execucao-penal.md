@@ -3,7 +3,7 @@ titulo: 'Execução penal, progressão e liberdade'
 chamada: 'Cumprindo pena e com direito parado'
 resumo: 'Progressão de regime, livramento condicional, remição por trabalho ou estudo. Direito que existe na lei mas não anda sozinho no processo.'
 descricao: 'Execução penal no Rio de Janeiro: progressão de regime, livramento condicional, remição e indulto. Entenda por que esses pedidos precisam ser requeridos.'
-ordem: 7
+ordem: 8
 relogio: 'Requisito cumprido não anda sozinho'
 mensagemWhatsapp: 'Olá, doutor. Preciso de ajuda com um pedido na execução penal.'
 keywords:

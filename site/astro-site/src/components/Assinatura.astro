@@ -2,6 +2,11 @@
 /**
  * Assinatura tipográfica usada no lugar do logo — ver `identidade/design-guide.md`.
  * Enquanto não existir arquivo de logo, é isso que marca as peças.
+ *
+ * Marca o escritório (Kovaleski Advogados), não a pessoa: é a leitura de
+ * "escritório" que o negócio quer passar, não "advogado autônomo".
+ * O nome do Douglas continua em `SITE.nome`, usado em título de página e
+ * no schema.org, onde a autoridade pessoal ainda importa.
  */
 import { SITE } from '../consts';
 
@@ -13,8 +18,8 @@ const { tamanho = 'media' } = Astro.props;
 ---
 
 <span class:list={['assinatura', tamanho]}>
-  <span class="nome">{SITE.nome}</span>
-  <span class="area">Advocacia Criminal</span>
+  <span class="nome">{SITE.assinatura}</span>
+  <span class="area">Advocacia Criminal e Empresarial</span>
 </span>
 
 <style>

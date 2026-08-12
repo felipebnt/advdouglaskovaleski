@@ -3,7 +3,7 @@ titulo: 'Intimação para depor na delegacia'
 chamada: 'Recebi uma intimação para depor'
 resumo: 'Comparecer é uma coisa. Falar é outra. O que você diz em depoimento fica no processo até o fim, e não tem como voltar atrás.'
 descricao: 'Recebeu intimação para depor na delegacia no Rio de Janeiro? Entenda a diferença entre comparecer e falar, e por que ir acompanhado de advogado muda o depoimento.'
-ordem: 3
+ordem: 4
 relogio: 'Até a data da intimação'
 mensagemWhatsapp: 'Olá, doutor. Recebi uma intimação para depor e preciso de orientação.'
 keywords:

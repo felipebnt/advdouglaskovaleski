@@ -7,7 +7,7 @@
 export const SITE = {
   nome: 'Douglas Kovaleski',
   assinatura: 'Kovaleski Advogados',
-  subtitulo: 'Advocacia Criminal no Rio de Janeiro',
+  subtitulo: 'Advocacia Criminal e Empresarial no Rio de Janeiro',
   /** Exigida pelo Provimento 205/2021 do CFOB em toda peça de publicidade. */
   oab: 'OAB/RJ 249.333',
   url: 'https://kovaleskiadvogados.netlify.app',
@@ -40,7 +40,7 @@ export const ETAPAS = [
     numero: '01',
     titulo: 'Contato',
     texto:
-      'Você fala direto comigo pelo WhatsApp. Sem intermediário, sem central de atendimento.',
+      'Você fala direto com quem vai cuidar do seu caso pelo WhatsApp. Sem intermediário, sem central de atendimento.',
   },
   {
     numero: '02',

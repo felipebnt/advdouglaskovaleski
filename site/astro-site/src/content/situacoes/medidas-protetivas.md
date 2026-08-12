@@ -3,7 +3,7 @@ titulo: 'Medidas protetivas e cautelares'
 chamada: 'Tem uma medida protetiva contra mim'
 resumo: 'Medida protetiva não é condenação, mas o descumprimento leva à prisão. Existe defesa técnica dos dois lados dessa história.'
 descricao: 'Medida protetiva de urgência no Rio de Janeiro: o que ela proíbe, o que acontece em caso de descumprimento e como funciona a defesa técnica.'
-ordem: 6
+ordem: 7
 relogio: 'Vale desde a notificação'
 mensagemWhatsapp: 'Olá, doutor. Preciso de orientação sobre uma medida protetiva.'
 keywords:

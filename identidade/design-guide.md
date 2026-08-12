@@ -64,7 +64,7 @@ O visual precisa transmitir discrição e seriedade — quem vê está passando 
 
 - **Arquivo:** *não existe ainda* — confirmado na instalação
 - **Versão pra fundo escuro:** —
-- **Enquanto não houver logo:** assinar as peças com o nome em serifa caixa alta — `DOUGLAS KOVALESKI` em branco, `ADVOCACIA CRIMINAL` menor e em dourado logo abaixo
+- **Enquanto não houver logo:** assinar as peças com o nome em serifa caixa alta — `KOVALESKI ADVOGADOS` em branco, `ADVOCACIA CRIMINAL E EMPRESARIAL` menor e em dourado logo abaixo. É a leitura de escritório que ele quer passar, não de advogado autônomo — ver `_memoria/empresa.md`.
 - **Onde usar:** slide final do carrossel (CTA), header de propostas, slides de apresentação
 - **Tamanho sugerido:** largura entre 120-200px nos HTMLs
 
@@ -73,4 +73,6 @@ O visual precisa transmitir discrição e seriedade — quem vê está passando 
 ## Observações adicionais
 
 - Peças de utilidade pública (alerta de golpe, canais oficiais) usam o mesmo padrão do post original: título em duas cores, bloco emoldurado com os contatos, selo de confirmação no rodapé.
-- Assinatura institucional das peças: `Kovaleski Advogados • Advocacia Criminal no Rio de Janeiro`.
+- Assinatura institucional das peças: `Kovaleski Advogados • Advocacia Criminal e Empresarial no Rio de Janeiro`.
+- Foto do Douglas (`site/astro-site/src/assets/hero.webp`): é o retrato de terno, braços cruzados, fundo transparente. A versão da balança da justiça atrás dele foi removida em 12/08/2026, a pedido dele ("acho que vai ficar mais leve") — não reintroduzir esse elemento em peças novas, nem em versão editada da mesma foto.
+- Linguagem de equipe: evitar "eu trabalho sozinho" ou equivalente em qualquer peça. Ele tem parceiros trabalhando com ele e a marca quer passar imagem de escritório, não de advogado autônomo. Preferir "quem conduz o seu caso" / "nós" no institucional.
