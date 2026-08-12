@@ -105,6 +105,7 @@ components:
     textColor: "{colors.texto-suave}"
     rounded: "{rounded.md}"
     padding: "1rem 1.15rem"
+  # Carrega o número da OAB desde 12/08/2026. Antes disso era só posicionamento.
   pilula-contexto:
     backgroundColor: "transparent"
     textColor: "{colors.dourado}"

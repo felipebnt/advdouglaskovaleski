@@ -88,7 +88,6 @@ O que um concorrente não copia honestamente: disponibilidade real fora do horá
 
 **Fatos de produto ainda em aberto:**
 
-- **Número de inscrição na OAB: pendente.** É exigência das normas de publicidade da advocacia e o site ainda não o exibe. Tratar como bloqueio antes de publicar.
 - Logo: não existe arquivo. As peças assinam com o nome em tipografia até existir.
 - Área empresarial: publicada em 11/08/2026 e ainda não revisada pelo Douglas. O site inteiro converge para o mesmo WhatsApp, sem separar o contato do empresário do contato de quem está em situação criminal. Funciona, mas mistura duas conversas muito diferentes na mesma caixa de entrada. Decisão do cliente se vale separar.
 
@@ -103,9 +102,10 @@ O que um concorrente não copia honestamente: disponibilidade real fora do horá
 ## Evidence on Hand
 
 - **`site/astro-site/src/assets/hero.webp`: foto real do Douglas, confirmada por ele.** Pode ser usada como retrato legítimo em qualquer peça.
+- **Número de inscrição: OAB/RJ 249.333, confirmado por ele em 12/08/2026.** Exibido no rodapé de toda página, na pílula do hero da home e no dado estruturado (schema.org `identifier`). Era o único bloqueio de publicação registrado neste arquivo; deixou de ser.
 - Sete páginas de situação e um artigo de blog em rascunho, **escritos por IA e ainda não revisados juridicamente por ele**. Os prazos citados vêm do CPP e do ECA e precisam de conferência antes de publicar. Já houve um erro corrigido nessa base (prazo do ECA aplicado à execução penal).
 - Textos reais dele que calibraram o tom: post "Boca fechada não entra mosca", aviso de canais oficiais, apresentação institucional.
-- **Não existe e não deve ser fabricado:** logo, depoimento de cliente, avaliação, taxa de êxito, número de casos, tempo de atuação, prêmio, número de OAB.
+- **Não existe e não deve ser fabricado:** logo, depoimento de cliente, avaliação, taxa de êxito, número de casos, tempo de atuação, prêmio.
 
 ## Product Principles
 

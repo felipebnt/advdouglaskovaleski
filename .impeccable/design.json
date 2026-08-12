@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-12T03:01:08.356068Z",
+  "generatedAt": "2026-08-12T19:07:15.381193Z",
   "title": "Design System: Kovaleski Advogados",
   "extensions": {
     "colorMeta": {
@@ -352,8 +352,8 @@
       "name": "Pílula de contexto",
       "kind": "chip",
       "refersTo": "pilula-contexto",
-      "description": "Etiqueta acima do título do hero. É onde o número de inscrição na OAB deve entrar quando existir.",
-      "html": "<p class=\"ds-pilula\">Advocacia criminal • Rio de Janeiro</p>",
+      "description": "Etiqueta acima do título do hero. Desde 12/08/2026 carrega o número de inscrição na OAB (OAB/RJ 249.333), exigido pelas normas de publicidade da advocacia.",
+      "html": "<p class=\"ds-pilula\">Advocacia criminal • OAB/RJ 249.333</p>",
       "css": ".ds-pilula { display: inline-block; margin: 0; padding: 0.4rem 1rem; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: 999px; background: transparent; font-family: Cinzel, 'Times New Roman', serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dourado, #c9973f); }"
     },
     {

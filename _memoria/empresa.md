@@ -3,6 +3,7 @@
 > Memória central do negócio. O Claude lê esse arquivo antes de cada resposta.
 
 **Nome:** Douglas Kovaleski (marca pessoal). Assina também como Kovaleski Advogados.
+**Inscrição:** OAB/RJ 249.333, confirmada por ele em 12/08/2026. Toda peça de publicidade deve exibir esse número (Provimento 205/2021 do CFOB).
 **Negócio:** Advocacia — Direito Criminal e Empresarial.
 **O que faz:** Defesa criminal com estratégia, sigilo e resposta rápida, no Rio de Janeiro. Atende urgência (flagrante, custódia, intimação) e também assessoria jurídica preventiva para empresários e empresas.
 **Perfil:** Solopreneur / marca pessoal.
