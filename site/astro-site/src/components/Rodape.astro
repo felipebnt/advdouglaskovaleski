@@ -15,8 +15,8 @@ const ano = new Date().getFullYear();
       <div class="coluna marca-col">
         <Assinatura />
         <p class="apoio">
-          Atuação em direito criminal no Rio de Janeiro. Atendimento direto com o
-          advogado, sem intermediário.
+          Atuação em direito criminal e empresarial no Rio de Janeiro.
+          Atendimento direto com o advogado, sem intermediário.
         </p>
       </div>
 
@@ -30,6 +30,16 @@ const ano = new Date().getFullYear();
               </li>
             ))
           }
+        </ul>
+      </div>
+
+      <div class="coluna">
+        <h3>Empresarial</h3>
+        <ul>
+          <li><a href="/empresarial/#prevencao">Consultoria preventiva</a></li>
+          <li><a href="/empresarial/#prevencao">Contratos e societário</a></li>
+          <li><a href="/empresarial/#prevencao">LGPD e compliance</a></li>
+          <li><a href="/empresarial/#conflito">Cobrança e defesa</a></li>
         </ul>
       </div>
 
@@ -72,20 +82,22 @@ const ano = new Date().getFullYear();
     margin-top: 2rem;
   }
 
+  /* 200px e não 240: com a quarta coluna, 240 estourava a largura útil e
+     deixava uma coluna órfã na segunda linha. */
   .topo {
     display: grid;
     gap: 2.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   }
 
   .marca-col .apoio {
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: var(--txt-apoio);
     max-width: 34ch;
   }
 
   .coluna h3 {
-    font-size: 0.72rem;
+    font-size: var(--txt-mini);
     letter-spacing: 0.2em;
     color: var(--dourado);
     margin-bottom: 1rem;
@@ -101,7 +113,7 @@ const ano = new Date().getFullYear();
 
   .coluna a {
     color: var(--texto-suave);
-    font-size: 1rem;
+    font-size: var(--txt-apoio);
     text-decoration: none;
   }
 
@@ -113,7 +125,7 @@ const ano = new Date().getFullYear();
     margin-top: 3rem;
     padding-top: 1.75rem;
     border-top: 1px solid var(--dourado-tenue);
-    font-size: 0.95rem;
+    font-size: var(--txt-nota);
     color: var(--texto-fraco);
   }
 

@@ -4,6 +4,7 @@ import BotaoWhatsapp from './BotaoWhatsapp.astro';
 
 const links = [
   { href: '/situacoes/', texto: 'Situações' },
+  { href: '/empresarial/', texto: 'Empresarial' },
   { href: '/blog/', texto: 'Orientação' },
   { href: '/sobre/', texto: 'Sobre' },
   { href: '/perguntas-frequentes/', texto: 'Dúvidas' },
@@ -90,13 +91,16 @@ const atual = Astro.url.pathname;
   nav a {
     display: block;
     font-family: var(--serifa-titulo);
-    font-size: 0.7rem;
+    font-size: var(--txt-micro);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--texto-suave);
     text-decoration: none;
     padding: 0.5rem 0.9rem;
     border-radius: 999px;
+    /* Item de menu não quebra: com dois nomes de duas palavras na barra,
+       "Canais oficiais" empilhava e desalinhava a pílula inteira. */
+    white-space: nowrap;
     transition: background 0.25s ease, color 0.25s ease;
   }
 
@@ -110,19 +114,32 @@ const atual = Astro.url.pathname;
     display: none;
   }
 
-  /* Entre 1024 e 1200 os três blocos não cabem na largura: a pílula encolhe
-     antes de qualquer coisa ser escondida. */
+  /* Entre 980 e 1200 os três blocos não cabem na largura: a pílula e o vão
+     encolhem antes de qualquer coisa ser escondida. Com a entrada do link
+     Empresarial só apertar a pílula deixou de bastar, então o vão da barra
+     cede junto. */
   @media (max-width: 1200px) {
+    .barra {
+      gap: 1rem;
+    }
+
     nav a {
-      padding: 0.5rem 0.7rem;
-      font-size: 0.66rem;
-      letter-spacing: 0.1em;
+      padding: 0.5rem 0.55rem;
+      font-size: var(--txt-micro);
+      letter-spacing: 0.08em;
     }
   }
 
-  /* :global porque a classe é aplicada ao <a> renderizado por BotaoWhatsapp,
-     que fica fora do escopo de estilo deste componente. */
-  @media (max-width: 980px) {
+  /*
+   * Último degrau da ordem de sacrifício: com seis itens a pílula passou a
+   * exigir mais largura do que sobra, e o CTA do topo sai antes que qualquer
+   * coisa quebre. O caminho para o WhatsApp não se perde: o botão flutuante
+   * cobre toda essa faixa.
+   *
+   * :global porque a classe é aplicada ao <a> renderizado por BotaoWhatsapp,
+   * que fica fora do escopo de estilo deste componente.
+   */
+  @media (max-width: 1140px) {
     :global(.cta-topo) {
       display: none;
     }
@@ -171,7 +188,7 @@ const atual = Astro.url.pathname;
     }
 
     nav a {
-      font-size: 0.8rem;
+      font-size: var(--txt-mini);
       padding-block: 0.5rem;
     }
   }

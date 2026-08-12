@@ -39,7 +39,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
           <Image
             class="retrato"
             src={heroFoto}
-            alt="Advogado de terno, com a balança da justiça ao fundo"
+            alt="Douglas Kovaleski, advogado criminalista, de terno e braços cruzados, com a balança da justiça ao fundo"
             widths={[420, 640, 900]}
             sizes="(max-width: 980px) 78vw, 38vw"
             loading="eager"
@@ -148,12 +148,15 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
           <h3>Áreas de atuação</h3>
           <ul>
             <li>Prisão em flagrante e audiência de custódia</li>
+            <li>Habeas corpus, prisão ilegal e excesso de prazo</li>
             <li>Inquérito policial e acompanhamento de depoimento</li>
             <li>Defesa em processo criminal e recursos</li>
             <li>Medidas protetivas e cautelares</li>
             <li>Execução penal, progressão e livramento</li>
             <li>Ato infracional (ECA e DEGASE)</li>
-            <li>Assessoria jurídica preventiva a empresas</li>
+            <li>
+              <a href="/empresarial/">Assessoria jurídica preventiva a empresas</a>
+            </li>
           </ul>
         </aside>
       </div>
@@ -262,7 +265,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     border: 1px solid var(--dourado-fraco);
     border-radius: 999px;
     font-family: var(--serifa-titulo);
-    font-size: 0.65rem;
+    font-size: var(--txt-micro);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--dourado);
@@ -271,7 +274,8 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
   /*
    * O h1 do hero dispensa o filete: o eixo de prazos é a régua da seção.
    * Corpo menor que o padrão global — numa coluna de três, o tamanho cheio
-   * quebrava o título em cinco linhas.
+   * quebrava o título em cinco linhas. É o papel "Display compacto" do
+   * DESIGN.md, não um valor solto, e vale só neste hero.
    */
   .hero h1 {
     font-size: clamp(1.7rem, 2.7vw, 2.4rem);
@@ -314,37 +318,13 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
   }
 
   /*
-   * Entrada do hero. Roda no carregamento, não na rolagem: aqui não há o que
-   * esperar. É CSS puro, sem JavaScript, então nada depende de script para
-   * aparecer. Com `prefers-reduced-motion` a regra global zera duração e
-   * atraso, e tudo nasce pronto.
+   * Entrada do hero. Os `@keyframes` moram no global.css; aqui fica só a
+   * ordem, que é decisão desta página.
    *
-   * A ordem coloca o CTA cedo. O botão do cabeçalho e o flutuante ficam de
-   * fora da cascata: quem chega com pressa tem sempre um caminho imediato
-   * para o WhatsApp, sem esperar animação nenhuma.
+   * A cascata coloca o CTA cedo. O botão do cabeçalho e o flutuante ficam de
+   * fora dela: quem chega com pressa tem sempre um caminho imediato para o
+   * WhatsApp, sem esperar animação nenhuma.
    */
-  @keyframes heroEntra {
-    from {
-      opacity: 0;
-      transform: translateY(26px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes heroFoto {
-    from {
-      opacity: 0;
-      transform: scale(1.06);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
   .hero-figura {
     animation: heroFoto 1.1s cubic-bezier(0.22, 0.7, 0.3, 1) both;
   }
@@ -430,7 +410,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     background: rgba(9, 16, 28, 0.94);
     text-decoration: none;
     color: var(--texto-suave);
-    font-size: 0.95rem;
+    font-size: var(--txt-nota);
     line-height: 1.4;
     transition: border-color 0.25s ease;
   }
@@ -444,7 +424,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     display: block;
     margin-bottom: 0.15rem;
     font-family: var(--serifa-titulo);
-    font-size: 0.68rem;
+    font-size: var(--txt-micro);
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -521,34 +501,6 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     }
   }
 
-  .etapas {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  }
-
-  .etapas li {
-    border-top: 1px solid var(--dourado-fraco);
-    padding-top: 1.25rem;
-  }
-
-  .etapas .numero {
-    display: block;
-    font-family: var(--serifa-titulo);
-    font-size: 1.6rem;
-    color: var(--dourado);
-    margin-bottom: 0.6rem;
-  }
-
-  .etapas p {
-    color: var(--texto-suave);
-    font-size: 1.05rem;
-    margin-bottom: 0;
-  }
-
   .sobre {
     display: grid;
     gap: 2.5rem;
@@ -563,12 +515,26 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
     display: grid;
     gap: 0.75rem;
     color: var(--texto-suave);
-    font-size: 1.05rem;
+    font-size: var(--txt-apoio);
   }
 
   .areas li {
     padding-left: 1.1rem;
     position: relative;
+  }
+
+  /* Só um item da lista é link (o empresarial, que tem página própria).
+     Herda a cor da lista para não virar o destaque do cartão; o sublinhado
+     no hover é que revela que ali se clica. */
+  .areas a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .areas a:hover,
+  .areas a:focus-visible {
+    color: var(--dourado-claro);
+    text-decoration: underline;
   }
 
   .areas li::before {
@@ -584,7 +550,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft))
   .cartao time {
     display: block;
     font-family: var(--serifa-titulo);
-    font-size: 0.65rem;
+    font-size: var(--txt-micro);
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--dourado);

@@ -88,7 +88,7 @@ const artigos = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   .artigos time {
     display: block;
     font-family: var(--serifa-titulo);
-    font-size: 0.65rem;
+    font-size: var(--txt-micro);
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--dourado);

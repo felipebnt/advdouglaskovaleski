@@ -82,9 +82,9 @@ import { ETAPAS } from '../consts';
 
         <p>
           <strong>Criminal:</strong> prisão em flagrante e audiência de custódia,
-          inquérito policial, acompanhamento de depoimento, defesa em processo
-          criminal e recursos, medidas protetivas e cautelares, execução penal e
-          ato infracional (ECA/DEGASE).
+          habeas corpus, inquérito policial, acompanhamento de depoimento, defesa
+          em processo criminal e recursos, medidas protetivas e cautelares,
+          execução penal e ato infracional (ECA/DEGASE).
         </p>
 
         <p>
@@ -121,32 +121,3 @@ import { ETAPAS } from '../consts';
   <ChamadaFinal />
 </Base>
 
-<style>
-  .etapas {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  }
-
-  .etapas li {
-    border-top: 1px solid var(--dourado-fraco);
-    padding-top: 1.25rem;
-  }
-
-  .etapas .numero {
-    display: block;
-    font-family: var(--serifa-titulo);
-    font-size: 1.6rem;
-    color: var(--dourado);
-    margin-bottom: 0.6rem;
-  }
-
-  .etapas p {
-    color: var(--texto-suave);
-    font-size: 1.05rem;
-    margin-bottom: 0;
-  }
-</style>

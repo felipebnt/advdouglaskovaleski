@@ -157,7 +157,7 @@ import { MARCOS, RESSALVA } from '../data/prazos';
   .rotulo {
     display: block;
     margin-top: 0.6rem;
-    font-size: 1.12rem;
+    font-size: var(--txt-card);
     line-height: 1.35;
     color: var(--texto-fraco);
     opacity: var(--t, 1);
@@ -169,7 +169,7 @@ import { MARCOS, RESSALVA } from '../data/prazos';
   /* --f: só depois que o eixo inteiro terminou. */
   figcaption {
     margin-top: clamp(2.5rem, 7vh, 4.5rem);
-    font-size: 0.95rem;
+    font-size: var(--txt-nota);
     line-height: 1.5;
     color: var(--texto-fraco);
     max-width: 62ch;
@@ -207,12 +207,12 @@ import { MARCOS, RESSALVA } from '../data/prazos';
 
     .rotulo {
       margin-top: 0.3rem;
-      font-size: 1rem;
+      font-size: var(--txt-apoio);
     }
 
     figcaption {
       margin-top: clamp(1rem, 2.4vh, 1.75rem);
-      font-size: 0.88rem;
+      font-size: var(--txt-pequeno);
     }
 
     .marcos {
@@ -267,7 +267,7 @@ import { MARCOS, RESSALVA } from '../data/prazos';
     }
 
     .rotulo {
-      font-size: 0.95rem;
+      font-size: var(--txt-nota);
     }
 
     .linha {
@@ -280,7 +280,7 @@ import { MARCOS, RESSALVA } from '../data/prazos';
 
     figcaption {
       margin-top: 0.9rem;
-      font-size: 0.84rem;
+      font-size: var(--txt-pequeno);
     }
   }
 

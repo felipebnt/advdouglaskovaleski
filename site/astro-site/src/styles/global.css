@@ -20,6 +20,30 @@
   --serifa-titulo: 'Cinzel', 'Times New Roman', serif;
   --serifa-corpo: 'Cormorant Garamond', Georgia, serif;
 
+  /*
+   * Escala de rótulo. Existiam dez tamanhos distintos entre 0.62 e 0.88rem,
+   * diferenças invisíveis em texto de caixa alta. Ficaram quatro degraus, e
+   * todo rótulo novo usa um deles em vez de um valor literal.
+   * Nome por tamanho, nunca por componente: o mesmo degrau serve botão,
+   * legenda e sobrancelha.
+   */
+  --txt-nano: 0.62rem;
+  --txt-micro: 0.65rem;
+  --txt-mini: 0.78rem;
+  --txt-pequeno: 0.85rem;
+
+  /*
+   * Texto secundário. Havia sete valores entre 0.95 e 1.2rem. Ficaram três,
+   * arredondados para cima: num site lido sob estresse, o erro barato é o
+   * texto grande demais.
+   */
+  --txt-nota: 0.95rem;
+  --txt-apoio: 1.05rem;
+  --txt-card: 1.15rem;
+
+  /* Numeral de etapa, o único degrau só para algarismo. */
+  --txt-numeral: 1.6rem;
+
   --raio: 14px;
   --largura: 1120px;
   --largura-texto: 68ch;
@@ -145,7 +169,7 @@ img {
 
 .olho {
   font-family: var(--serifa-titulo);
-  font-size: 0.78rem;
+  font-size: var(--txt-mini);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--dourado);
@@ -190,7 +214,7 @@ a.cartao:focus-visible {
 
 .cartao p {
   color: var(--texto-suave);
-  font-size: 1.15rem;
+  font-size: var(--txt-card);
   margin-bottom: 0;
 }
 
@@ -205,7 +229,7 @@ a.cartao:focus-visible {
   gap: 0.6rem;
   margin-bottom: 1rem;
   font-family: var(--serifa-corpo);
-  font-size: 0.82rem;
+  font-size: var(--txt-mini);
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.14em;
@@ -230,6 +254,84 @@ a.cartao:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
 }
 
+/* ---------- etapas numeradas ---------- */
+
+/*
+ * O passo a passo do atendimento. Nasceu na home, foi copiado para /sobre/ e
+ * de novo para /empresarial/ — na terceira cópia virou componente.
+ * O filete superior substitui a borda de cartão: é sequência, não coleção.
+ */
+.etapas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.etapas li {
+  border-top: 1px solid var(--dourado-fraco);
+  padding-top: 1.25rem;
+}
+
+.etapas .numero {
+  display: block;
+  font-family: var(--serifa-titulo);
+  font-size: var(--txt-numeral);
+  color: var(--dourado);
+  margin-bottom: 0.6rem;
+}
+
+.etapas p {
+  color: var(--texto-suave);
+  font-size: var(--txt-apoio);
+  margin-bottom: 0;
+}
+
+/* ---------- perguntas frequentes ---------- */
+
+/*
+ * `<details>` nativo, sem JavaScript: abre mesmo se o script falhar, e o
+ * conteúdo fechado continua no HTML para o buscador ler.
+ */
+.faq details {
+  border-bottom: 1px solid var(--dourado-tenue);
+  padding-block: 1.1rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-family: var(--serifa-titulo);
+  font-size: var(--txt-pequeno);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  color: var(--dourado);
+  flex-shrink: 0;
+}
+
+.faq details[open] summary::after {
+  content: '−';
+}
+
+.faq details p {
+  margin: 1rem 0 0;
+  color: var(--texto-suave);
+}
+
 /* ---------- botões ---------- */
 
 .botao {
@@ -242,7 +344,7 @@ a.cartao:focus-visible {
   background: transparent;
   color: var(--dourado-claro);
   font-family: var(--serifa-titulo);
-  font-size: 0.85rem;
+  font-size: var(--txt-pequeno);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -307,6 +409,19 @@ a.cartao:focus-visible {
   color: var(--dourado-claro);
 }
 
+/*
+ * Guarda para tela estreita. Como o rótulo não quebra, um texto longo
+ * empurraria o botão para fora da tela. Aperta o recuo e desce um degrau
+ * de corpo antes de deixar isso acontecer.
+ */
+@media (max-width: 420px) {
+  .botao {
+    padding-inline: 1.1rem;
+    font-size: var(--txt-mini);
+    gap: 0.6rem;
+  }
+}
+
 .botoes {
   display: flex;
   flex-wrap: wrap;
@@ -359,6 +474,39 @@ a.cartao:focus-visible {
 
 .prosa a {
   color: var(--dourado-claro);
+}
+
+/* ---------- entrada de hero ---------- */
+
+/*
+ * Usadas pelos heros com retrato (home e empresarial). Ficam no global porque
+ * são só definição de movimento, sem acoplamento com layout: cada página
+ * decide o que anima, em que ordem e com que atraso.
+ *
+ * Rodam no carregamento, não na rolagem: no topo da página não há o que
+ * esperar. É CSS puro, então nada depende de JavaScript para aparecer, e com
+ * `prefers-reduced-motion` a regra global zera duração e atraso.
+ */
+@keyframes heroEntra {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroFoto {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- revelação na rolagem ---------- */

@@ -3,7 +3,7 @@ titulo: 'Adolescente apreendido: ECA e DEGASE'
 chamada: 'Apreenderam um adolescente da família'
 resumo: 'Adolescente não responde a processo criminal, responde a ato infracional. Regras próprias, prazos próprios e uma audiência que acontece rápido.'
 descricao: 'Adolescente apreendido no Rio de Janeiro? Entenda o procedimento do ECA, o papel do DEGASE, as medidas socioeducativas e o que a família deve fazer.'
-ordem: 7
+ordem: 8
 relogio: 'Internação provisória: 45 dias'
 mensagemWhatsapp: 'Olá, doutor. Um adolescente da minha família foi apreendido e preciso de ajuda.'
 keywords:

@@ -3,7 +3,7 @@ titulo: 'Defesa em processo criminal e recursos'
 chamada: 'Virei réu em um processo'
 resumo: 'Denúncia recebida, ação penal em curso. Cada prazo perdido nessa fase é um argumento que a defesa não usa mais.'
 descricao: 'Denúncia recebida e processo criminal em andamento no Rio de Janeiro? Entenda as fases da ação penal, o papel da resposta à acusação e dos recursos.'
-ordem: 4
+ordem: 5
 relogio: 'Prazo próprio em cada fase'
 mensagemWhatsapp: 'Olá, doutor. Sou réu em um processo criminal e preciso de defesa.'
 keywords:

@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-12T03:01:08.356068Z",
+  "title": "Design System: Kovaleski Advogados",
+  "extensions": {
+    "colorMeta": {
+      "dourado": {
+        "role": "primary",
+        "displayName": "Dourado envelhecido / bronze",
+        "canonical": "#c9973f",
+        "tonalRamp": [
+          "#14100a",
+          "#2b2010",
+          "#453218",
+          "#5f4520",
+          "#7d5a2a",
+          "#9c7234",
+          "#c9973f",
+          "#e3c795"
+        ]
+      },
+      "dourado-claro": {
+        "role": "primary",
+        "displayName": "Variação clara",
+        "canonical": "#d8b06a",
+        "tonalRamp": [
+          "#17130c",
+          "#2f2716",
+          "#473a20",
+          "#604e2a",
+          "#836a38",
+          "#a68746",
+          "#d8b06a",
+          "#eddcbe"
+        ]
+      },
+      "dourado-fraco": {
+        "role": "primary",
+        "displayName": "Dourado a 28%",
+        "canonical": "rgba(201, 151, 63, 0.28)",
+        "tonalRamp": [
+          "#0d0c09",
+          "#171410",
+          "#211c14",
+          "#2b2419",
+          "#3a3020",
+          "#493c27",
+          "#5d4c32",
+          "#7a653f"
+        ]
+      },
+      "dourado-tenue": {
+        "role": "primary",
+        "displayName": "Dourado a 12%",
+        "canonical": "rgba(201, 151, 63, 0.12)",
+        "tonalRamp": [
+          "#08080a",
+          "#0e0d0d",
+          "#141210",
+          "#1a1713",
+          "#231e17",
+          "#2c261c",
+          "#382f22",
+          "#483d2c"
+        ]
+      },
+      "preto": {
+        "role": "neutral",
+        "displayName": "Fundo principal",
+        "canonical": "#05070a",
+        "tonalRamp": [
+          "#05070a",
+          "#0a1524",
+          "#0e2036",
+          "#16304d",
+          "#1e4066",
+          "#2a5580",
+          "#3d6f9e",
+          "#6b9ac4"
+        ]
+      },
+      "marinho": {
+        "role": "neutral",
+        "displayName": "Marinho do gradiente",
+        "canonical": "#0e2036",
+        "tonalRamp": [
+          "#04060a",
+          "#080f1a",
+          "#0e2036",
+          "#16304d",
+          "#1e4066",
+          "#2a5580",
+          "#3d6f9e",
+          "#6b9ac4"
+        ]
+      },
+      "marinho-claro": {
+        "role": "neutral",
+        "displayName": "Marinho claro",
+        "canonical": "#16304d",
+        "tonalRamp": [
+          "#060a10",
+          "#0b1526",
+          "#11253c",
+          "#16304d",
+          "#1f4267",
+          "#2c5987",
+          "#4176ab",
+          "#7aa6cd"
+        ]
+      },
+      "texto": {
+        "role": "neutral",
+        "displayName": "Texto principal",
+        "canonical": "#f5f1ea",
+        "tonalRamp": [
+          "#171613",
+          "#2e2b26",
+          "#454139",
+          "#5c574c",
+          "#8b8578",
+          "#b3ada0",
+          "#d9d4c9",
+          "#f5f1ea"
+        ]
+      },
+      "texto-suave": {
+        "role": "neutral",
+        "displayName": "Texto a 72%",
+        "canonical": "rgba(245, 241, 234, 0.72)",
+        "tonalRamp": [
+          "#121110",
+          "#26241f",
+          "#3a372f",
+          "#4e4a40",
+          "#767061",
+          "#9a9384",
+          "#bdb7ab",
+          "#e0dcd3"
+        ]
+      },
+      "texto-fraco": {
+        "role": "neutral",
+        "displayName": "Texto a 50%",
+        "canonical": "rgba(245, 241, 234, 0.5)",
+        "tonalRamp": [
+          "#0d0d0c",
+          "#1c1b19",
+          "#2b2926",
+          "#3a3833",
+          "#5a574f",
+          "#7b776c",
+          "#9c978a",
+          "#bdb8ab"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título de página. Um por tela."
+      },
+      "display-compacto": {
+        "displayName": "Display compacto",
+        "purpose": "O papel Display dentro do hero da home, único lugar onde o título divide a largura com retrato e card. Na escala cheia quebrava em cinco linhas."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de seção."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título de card e de subitem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prosa. Medida travada em 68ch. Corpo grande por causa da altura-x baixa do Cormorant."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Parágrafo de abertura sob um título."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Sobrancelha dourada acima do título. Nomeia a seção, não descreve."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Rótulo de botão. Nunca quebra em duas linhas."
+      },
+      "marker": {
+        "displayName": "Marker",
+        "purpose": "Rótulo de prazo dos cards, em --txt-mini. Fica em Cormorant porque é frase, não numeral."
+      }
+    },
+    "shadows": [
+      {
+        "name": "brilho-marco",
+        "value": "0 0 10px rgba(216, 176, 106, 0.55)",
+        "purpose": "Único brilho do sistema. Acende proporcional ao progresso da rolagem no tique do eixo de prazos, portanto codifica estado. Não usar como sombra decorativa em nenhum outro lugar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-padrao",
+        "value": "cubic-bezier(0.22, 0.7, 0.3, 1)",
+        "purpose": "Curva única do sistema, para entrada de elemento e traçado de eixo."
+      },
+      {
+        "name": "duracao-estado",
+        "value": "0.25s",
+        "purpose": "Hover e foco de botão, card e link."
+      },
+      {
+        "name": "duracao-revelacao",
+        "value": "0.7s",
+        "purpose": "Entrada de bloco na rolagem, deslocamento de 26px."
+      },
+      {
+        "name": "duracao-hero",
+        "value": "0.75s",
+        "purpose": "Cascata de entrada do hero no carregamento, com atrasos de 100ms a 480ms."
+      },
+      {
+        "name": "duracao-figura",
+        "value": "1.1s",
+        "purpose": "Entrada do retrato, de escala 1.06 para 1."
+      },
+      {
+        "name": "escalonamento-lista",
+        "value": "70ms",
+        "purpose": "Intervalo entre filhos numa grade revelada na rolagem."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-encolhe",
+        "value": "1200px"
+      },
+      {
+        "name": "cta-topo-some",
+        "value": "1140px"
+      },
+      {
+        "name": "hero-duas-colunas",
+        "value": "1100px"
+      },
+      {
+        "name": "hero-uma-coluna",
+        "value": "860px"
+      },
+      {
+        "name": "menu-hamburguer",
+        "value": "820px"
+      },
+      {
+        "name": "eixo-vertical",
+        "value": "760px"
+      },
+      {
+        "name": "tela-baixa",
+        "value": "altura 760px"
+      }
+    ],
+    "labelScale": [
+      {
+        "name": "--txt-nano",
+        "value": "0.62rem",
+        "purpose": "Assinatura secundária e rótulo de campo em card."
+      },
+      {
+        "name": "--txt-micro",
+        "value": "0.65rem",
+        "purpose": "Migalha, item de menu e metadado de artigo."
+      },
+      {
+        "name": "--txt-mini",
+        "value": "0.78rem",
+        "purpose": "Sobrancelha de seção e marcador de prazo."
+      },
+      {
+        "name": "--txt-pequeno",
+        "value": "0.85rem",
+        "purpose": "Rótulo de botão, resumo de pergunta e legenda de eixo."
+      }
+    ],
+    "bodyScale": [
+      {
+        "name": "--txt-nota",
+        "value": "0.95rem",
+        "purpose": "Ressalva, nota de rodapé e legenda de eixo."
+      },
+      {
+        "name": "--txt-apoio",
+        "value": "1.05rem",
+        "purpose": "Texto de lista, link de rodapé e descrição de etapa."
+      },
+      {
+        "name": "--txt-card",
+        "value": "1.15rem",
+        "purpose": "Corpo de card e valor de contato."
+      },
+      {
+        "name": "--txt-numeral",
+        "value": "1.6rem",
+        "purpose": "Numeral das etapas. Único degrau exclusivo de algarismo."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão sólido (CTA principal)",
+      "kind": "button",
+      "refersTo": "botao-solido",
+      "description": "Reservado ao caminho para o WhatsApp. No máximo um por dobra.",
+      "html": "<a class=\"ds-btn-solido\" href=\"#\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z\"></path></svg><span class=\"ds-filete\"></span><span>Falar no WhatsApp</span></a>",
+      "css": ".ds-btn-solido { display: inline-flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1.6rem; border: 1px solid var(--dourado, #c9973f); border-radius: var(--raio, 14px); background: var(--dourado, #c9973f); color: var(--preto, #05070a); font-family: Cinzel, 'Times New Roman', serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; } .ds-btn-solido .ds-filete { width: 1px; align-self: stretch; background: rgba(5, 7, 10, 0.35); } .ds-btn-solido:hover { background: var(--dourado-claro, #d8b06a); border-color: var(--dourado-claro, #d8b06a); } .ds-btn-solido:focus-visible { outline: 2px solid var(--dourado-claro, #d8b06a); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botão contorno",
+      "kind": "button",
+      "refersTo": "botao-contorno",
+      "description": "Botão padrão do sistema. Contorno dourado sobre fundo transparente, invertendo no hover.",
+      "html": "<a class=\"ds-btn-contorno\" href=\"#\">Ver situações</a>",
+      "css": ".ds-btn-contorno { display: inline-flex; align-items: center; gap: 0.85rem; padding: 0.85rem 1.6rem; border: 1px solid var(--dourado, #c9973f); border-radius: var(--raio, 14px); background: transparent; color: var(--dourado-claro, #d8b06a); font-family: Cinzel, 'Times New Roman', serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; } .ds-btn-contorno:hover { background: var(--dourado, #c9973f); color: var(--preto, #05070a); } .ds-btn-contorno:focus-visible { outline: 2px solid var(--dourado-claro, #d8b06a); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botão discreto",
+      "kind": "button",
+      "refersTo": "botao-discreto",
+      "description": "Ação secundária. Contorno esmaecido que acende no hover.",
+      "html": "<a class=\"ds-btn-discreto\" href=\"#\">Conhecer o trabalho</a>",
+      "css": ".ds-btn-discreto { display: inline-flex; align-items: center; padding: 0.85rem 1.6rem; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: var(--raio, 14px); background: transparent; color: rgba(245, 241, 234, 0.72); font-family: Cinzel, 'Times New Roman', serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; cursor: pointer; transition: border-color 0.25s ease, color 0.25s ease; } .ds-btn-discreto:hover { border-color: var(--dourado, #c9973f); color: var(--dourado-claro, #d8b06a); } .ds-btn-discreto:focus-visible { outline: 2px solid var(--dourado-claro, #d8b06a); outline-offset: 3px; }"
+    },
+    {
+      "name": "Card de situação",
+      "kind": "card",
+      "refersTo": "cartao",
+      "description": "Card clicável que abre com o prazo real daquele procedimento. Sem preenchimento próprio: é o fundo da página delimitado por moldura.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-relogio\">Custódia em até 24 horas</span><h3>Prenderam alguém da minha família agora</h3><p>As primeiras horas depois do flagrante decidem muita coisa.</p></a>",
+      "css": ".ds-card { display: block; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: var(--raio, 14px); padding: 1.75rem; background: transparent; color: inherit; text-decoration: none; transition: border-color 0.25s ease, transform 0.25s ease; } .ds-card:hover { border-color: var(--dourado, #c9973f); transform: translateY(-2px); } .ds-card h3 { font-family: Cinzel, 'Times New Roman', serif; font-size: 1.3rem; font-weight: 500; line-height: 1.24; letter-spacing: 0.05em; text-transform: uppercase; color: var(--texto, #f5f1ea); margin: 0 0 0.6rem; } .ds-card p { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; line-height: 1.68; color: rgba(245, 241, 234, 0.72); margin: 0; } .ds-relogio { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 1rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.82rem; font-weight: 600; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dourado, #c9973f); } .ds-relogio::before { content: ''; width: 0.9rem; height: 1px; margin-top: 0.7em; flex-shrink: 0; background: var(--dourado, #c9973f); }"
+    },
+    {
+      "name": "Selo de canais oficiais",
+      "kind": "card",
+      "refersTo": "selo",
+      "description": "Card de verificação que ocupa, na composição, o lugar onde a referência de mercado colocaria avaliação de cliente. Sem desfoque de fundo por decisão.",
+      "html": "<a class=\"ds-selo\" href=\"#\"><span class=\"ds-selo-marca\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\"><path d=\"M20 6 9 17l-5-5\"></path></svg></span><span><strong>Canais oficiais</strong>Confirme antes de enviar informação ou fazer qualquer pagamento.</span></a>",
+      "css": ".ds-selo { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem 1.15rem; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: var(--raio, 14px); background: rgba(9, 16, 28, 0.94); color: rgba(245, 241, 234, 0.72); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.95rem; line-height: 1.4; text-decoration: none; transition: border-color 0.25s ease; } .ds-selo:hover { border-color: var(--dourado, #c9973f); } .ds-selo strong { display: block; margin-bottom: 0.15rem; font-family: Cinzel, 'Times New Roman', serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--texto, #f5f1ea); } .ds-selo-marca { flex-shrink: 0; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: 50%; color: var(--dourado, #c9973f); }"
+    },
+    {
+      "name": "Pílula de contexto",
+      "kind": "chip",
+      "refersTo": "pilula-contexto",
+      "description": "Etiqueta acima do título do hero. É onde o número de inscrição na OAB deve entrar quando existir.",
+      "html": "<p class=\"ds-pilula\">Advocacia criminal • Rio de Janeiro</p>",
+      "css": ".ds-pilula { display: inline-block; margin: 0; padding: 0.4rem 1rem; border: 1px solid rgba(201, 151, 63, 0.28); border-radius: 999px; background: transparent; font-family: Cinzel, 'Times New Roman', serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dourado, #c9973f); }"
+    },
+    {
+      "name": "Navegação em pílula",
+      "kind": "nav",
+      "refersTo": "pilula-nav",
+      "description": "Cápsula translúcida com desfoque. O desfoque é legítimo aqui porque o cabeçalho flutua sobre conteúdo rolante.",
+      "html": "<nav class=\"ds-nav\"><ul><li><a href=\"#\" aria-current=\"page\">Situações</a></li><li><a href=\"#\">Orientação</a></li><li><a href=\"#\">Sobre</a></li></ul></nav>",
+      "css": ".ds-nav { display: inline-block; border: 1px solid rgba(201, 151, 63, 0.12); border-radius: 999px; background: rgba(14, 32, 54, 0.4); backdrop-filter: blur(8px); padding: 0.35rem 0.5rem; } .ds-nav ul { display: flex; align-items: center; gap: 0.35rem; list-style: none; margin: 0; padding: 0; } .ds-nav a { display: block; padding: 0.5rem 0.9rem; border-radius: 999px; font-family: Cinzel, 'Times New Roman', serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245, 241, 234, 0.72); text-decoration: none; transition: background 0.25s ease, color 0.25s ease; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: var(--texto, #f5f1ea); background: rgba(201, 151, 63, 0.16); }"
+    },
+    {
+      "name": "Marco do eixo de prazos",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Componente-assinatura. Tique dourado, valor em Cinzel e rótulo em Cormorant. Mostrado aqui no estado final; no site cada marco acende quando o traçado chega nele.",
+      "html": "<div class=\"ds-eixo\"><span class=\"ds-eixo-linha\"></span><ol class=\"ds-marcos\"><li><span class=\"ds-tique\"></span><span class=\"ds-valor\">24h</span><span class=\"ds-rotulo\">Audiência de custódia</span></li><li><span class=\"ds-tique\"></span><span class=\"ds-valor\">10 dias</span><span class=\"ds-rotulo\">Conclusão do inquérito</span></li></ol></div>",
+      "css": ".ds-eixo { position: relative; padding-top: 1.5rem; } .ds-eixo-linha { position: absolute; top: 0; left: 25%; right: 25%; height: 1px; background: rgba(201, 151, 63, 0.28); } .ds-marcos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; text-align: center; } .ds-marcos li { position: relative; } .ds-tique { position: absolute; top: -1.5rem; left: 50%; width: 1px; height: 0.9rem; background: var(--dourado, #c9973f); box-shadow: 0 0 10px rgba(216, 176, 106, 0.55); } .ds-valor { display: block; font-family: Cinzel, 'Times New Roman', serif; font-size: 1.8rem; font-weight: 500; letter-spacing: 0.06em; color: var(--dourado-claro, #d8b06a); } .ds-rotulo { display: block; margin-top: 0.6rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.12rem; line-height: 1.35; color: rgba(245, 241, 234, 0.5); }"
+    },
+    {
+      "name": "Etapas numeradas",
+      "kind": "custom",
+      "refersTo": "etapa",
+      "description": "Sequência do atendimento. Filete no topo em vez de moldura fechada: é sequência, não coleção. Promovida a componente global depois da terceira cópia.",
+      "html": "<ol class=\"ds-etapas\"><li><span class=\"ds-num\">01</span><h4>Diagnóstico</h4><p>Conversamos sobre a operação: o que a empresa faz, com quem contrata, como paga e como recebe.</p></li><li><span class=\"ds-num\">02</span><h4>Prioridade</h4><p>Definimos juntos o que é urgente, o que é importante e o que pode esperar.</p></li></ol>",
+      "css": ".ds-etapas { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); } .ds-etapas li { border-top: 1px solid rgba(201, 151, 63, 0.28); padding-top: 1.25rem; } .ds-num { display: block; font-family: Cinzel, 'Times New Roman', serif; font-size: 1.6rem; color: #c9973f; margin-bottom: 0.6rem; } .ds-etapas h4 { font-family: Cinzel, 'Times New Roman', serif; font-weight: 500; font-size: 1.3rem; letter-spacing: 0.05em; text-transform: uppercase; color: #f5f1ea; margin: 0 0 1rem; } .ds-etapas p { color: rgba(245, 241, 234, 0.72); font-size: 1.05rem; margin: 0; }"
+    },
+    {
+      "name": "Pergunta frequente",
+      "kind": "accordion",
+      "refersTo": "pergunta",
+      "description": "`<details>` nativo, sem JavaScript: abre mesmo se o script falhar e o conteúdo fechado continua no HTML para o buscador ler.",
+      "html": "<div class=\"ds-faq\"><details open><summary>Preciso ter um departamento jurídico para contratar esse apoio?</summary><p>Não. O acompanhamento preventivo existe justamente para a empresa que não tem estrutura jurídica interna.</p></details><details><summary>O apoio é pontual ou contínuo?</summary><p>As duas formas existem, mas o formato principal é o acompanhamento contínuo.</p></details></div>",
+      "css": ".ds-faq details { border-bottom: 1px solid rgba(201, 151, 63, 0.12); padding-block: 1.1rem; } .ds-faq summary { cursor: pointer; font-family: Cinzel, 'Times New Roman', serif; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: #f5f1ea; list-style: none; display: flex; justify-content: space-between; gap: 1rem; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary::after { content: '+'; color: #c9973f; flex-shrink: 0; } .ds-faq details[open] summary::after { content: '−'; } .ds-faq details p { margin: 1rem 0 0; color: rgba(245, 241, 234, 0.72); font-size: 1.3rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Relógio do Processo",
+    "overview": "O sistema tem uma unidade de composição, e ela não é visual: é o prazo. Todo momento que este produto descreve tem um relógio correndo, e o relógio é o que a tela mostra primeiro. Vinte e quatro horas até a audiência de custódia. Dez dias para a conclusão do inquérito. Quarenta e cinco dias de internação provisória. O sistema existe para tornar esses números visíveis, ordenados e verdadeiros.\n\nA consequência é que ornamento aqui precisa codificar algo. Uma régua marca uma sequência real. Um tique dourado marca uma posição real no tempo. Um filete separa o que de fato é separado. Nada é acrescentado porque a tela parecia vazia, e é por isso que a paleta cabe em duas cores e o repertório de forma cabe em uma linha de 1px.\n\nA base é escura porque a tela é lida no escuro, no celular, quase sempre por alguém em pânico. Sobre ela, um dourado envelhecido único e duas serifas que se dividem por função: uma carrega os números, a outra carrega as palavras. A autoridade do sistema vem da precisão, nunca do volume. É um sistema que prova competência acertando o prazo, não anunciando resultado.",
+    "keyCharacteristics": [
+      "Fundo escuro permanente, do preto ao marinho, nunca claro",
+      "Um único destaque: dourado envelhecido, usado com escassez",
+      "Duas serifas com divisão de trabalho fixa: números e títulos em uma, prosa na outra",
+      "Zero sombra. A profundidade vem de gradiente e de linha de 1px",
+      "Ornamento só quando codifica informação verdadeira",
+      "Movimento lento, único e sempre dispensável"
+    ],
+    "rules": [
+      {
+        "name": "A Regra do Destaque Único",
+        "body": "O dourado é a única cor do sistema. Qualquer outro matiz vivo está proibido, incluindo o vermelho de alerta e o verde de sucesso. Um estado de erro se comunica por palavra e por posição, nunca por cor nova.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Fundo Escuro",
+        "body": "Não existe superfície clara neste sistema. Nem card, nem modal, nem tabela, nem impressão. Se um componente parece exigir fundo branco, o componente está errado.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra da Divisão de Serifas",
+        "body": "Numeral e título em Cinzel. Palavra corrida em Cormorant. Um rótulo que é frase inteira fica em Cormorant mesmo em caixa alta, porque Cinzel em frase longa vira ruído.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Corpo Grande",
+        "body": "Nenhum texto de leitura abaixo de 1.3rem. O público lê no celular, sob estresse, às vezes de madrugada. Reduzir corpo para caber mais conteúdo é sempre a decisão errada.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Prazo Visível",
+        "body": "Toda tela que descreve um momento processual declara o relógio daquele momento antes de descrever qualquer outra coisa. Se não há prazo verdadeiro a declarar, não se inventa um.",
+        "section": "layout"
+      },
+      {
+        "name": "A Regra das Duas Larguras",
+        "body": "Prosa nunca ocupa a largura da grade. Se um parágrafo passa de 68ch, o layout está errado, não o texto.",
+        "section": "layout"
+      },
+      {
+        "name": "A Regra Sem Sombra",
+        "body": "Nenhum componente ganha sombra para parecer elevado. Se um elemento precisa se destacar do fundo, ele ganha borda de 1px ou fundo translúcido, nunca sombra.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra do Vidro Só Onde Flutua",
+        "body": "Translucidez com desfoque é permitida apenas em elemento que de fato flutua sobre conteúdo rolante: cabeçalho fixo e botão flutuante. Em card estático o desfoque não muda nada visualmente e já causou falha de composição em GPU de celular, com o card virando bloco sólido sem conteúdo.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra dos Degraus Fechados",
+        "body": "Rótulo de caixa alta usa --txt-nano, --txt-micro, --txt-mini ou --txt-pequeno. Texto secundário usa --txt-nota, --txt-apoio ou --txt-card. Nenhum valor literal novo nessas faixas. Se um caso parece exigir um degrau extra, quase sempre ele cabe no vizinho, e na dúvida arredonda-se para cima.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do declarar o prazo verdadeiro daquele momento antes de qualquer descrição, em Cormorant caixa alta 0.82rem com o traço dourado à frente.",
+      "Do delimitar superfície com linha de 1px dourada a 28%, e separar seção com a mesma linha a 12%.",
+      "Do manter numeral e título em Cinzel e toda prosa em Cormorant, mesmo quando o rótulo está em caixa alta.",
+      "Do manter todo texto de leitura em 1.3rem ou mais e toda prosa dentro de 68ch.",
+      "Do garantir que o caminho para o WhatsApp exista sem depender de animação, de rolagem ou de JavaScript. O botão do cabeçalho e o flutuante ficam fora de qualquer cascata de entrada.",
+      "Do deixar todo elemento animado visível quando prefers-reduced-motion está ativo, zerando duração e atraso. Atraso não zerado deixa o elemento no estado inicial invisível."
+    ],
+    "donts": [
+      "Don't usar sombra para sugerir elevação. Borda de 1px ou fundo translúcido resolvem.",
+      "Don't aplicar desfoque de fundo em card estático. Vale só para elemento que flutua sobre conteúdo rolante.",
+      "Don't introduzir matiz fora do par escuro/dourado, incluindo vermelho de alerta e verde de sucesso.",
+      "Don't usar fundo claro em nenhuma superfície.",
+      "Don't montar faixa de indicadores de desempenho, selo de avaliação ou depoimento, por mais que a referência de mercado peça. Publicidade de resultado e avaliação de cliente são vedadas para advogado no Brasil. A faixa existe, mas carrega prazos do CPP.",
+      "Don't usar urgência visual agressiva: contagem regressiva, pulsação, seta piscando, última chance. O público já está com pressa; o sistema não aumenta o pânico.",
+      "Don't deixar rótulo de botão quebrar em duas linhas.",
+      "Don't acrescentar ornamento que não codifique informação verdadeira. Se o traço não marca nada real, ele sai."
+    ]
+  }
+}
