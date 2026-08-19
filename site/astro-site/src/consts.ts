@@ -30,6 +30,16 @@ export function whatsapp(mensagem?: string): string {
 }
 
 /**
+ * IDs de rastreamento. Extraídos do site antigo (kovaleskiadvogados.netlify.app)
+ * em 12/08/2026 — só existia a tag base do Google Ads, sem rótulo de conversão
+ * configurado (isso se cria no próprio Google Ads: Ferramentas > Conversões).
+ * Sem GA4, sem Meta Pixel, sem GTM no site antigo.
+ */
+export const RASTREIO = {
+  googleAds: 'AW-18036409326',
+} as const;
+
+/**
  * As situações moram na coleção `src/content/situacoes/` — texto em markdown,
  * editável sem mexer em código. Use `getCollection('situacoes')` para lê-las.
  */

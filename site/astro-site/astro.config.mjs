@@ -14,7 +14,11 @@ const site =
 
 export default defineConfig({
   site,
-  integrations: [sitemap()],
+  integrations: [
+    // /obrigado/ é confirmação de clique, não conteúdo de busca — fora do
+    // sitemap, além de já estar marcada `noindex` na própria página.
+    sitemap({ filter: (pagina) => !pagina.includes('/obrigado') }),
+  ],
   markdown: {
     shikiConfig: { theme: 'css-variables' },
   },

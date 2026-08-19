@@ -16,6 +16,7 @@
 - Instagram [@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)
 - Site: https://kovaleskiadvogados.netlify.app/
 - E-mail: douglaskovaleski.adv@gmail.com
+- Google Ads: tag `AW-18036409326`, extraída do site antigo e instalada em todo o site novo desde 19/08/2026. Sem rótulo de conversão ainda (ver `PRODUCT.md`) — só mede visita, não fecha o funil.
 **Principais entregas:**
 - **Criminal:** prisão em flagrante, audiência de custódia, atendimento em delegacia, habeas corpus, acompanhamento de inquérito, defesa em processo criminal e recursos, medidas protetivas e cautelares, execução penal, ECA/DEGASE.
 - **Empresarial, frente preventiva:** consultoria jurídica preventiva, elaboração e revisão de contratos (comerciais, prestação de serviços, fornecedores, parceiros, NDA), direito societário (constituição, alterações contratuais, entrada e saída de sócios, reorganização), assessoria trabalhista para o empregador, compliance e gestão de riscos, adequação à LGPD.
@@ -30,3 +31,4 @@
 - O WhatsApp é o **mesmo** para as duas áreas. O empresário e a família de alguém preso caem na mesma caixa de entrada, com mensagem pré-preenchida diferente mas número igual. Ainda não foi decidido se vale separar.
 - Já houve golpista se passando pelo escritório — por isso os canais oficiais são reforçados publicamente. Qualquer material que peça contato deve apontar para os canais oficiais acima.
 - Fluxo de atendimento divulgado: (1) contato pelo WhatsApp → (2) análise técnica do cenário → (3) estratégia para o caso concreto → (4) acompanhamento.
+- Desde 19/08/2026, todo clique em botão do WhatsApp abre a conversa numa aba nova e, cerca de 1,2s depois, leva a aba original para `/obrigado/`. É o desvio de conversão: o wa.me tira a pessoa do site, então essa é a única forma de saber que o clique virou contato de verdade. A página fica fora do sitemap e é `noindex`, de propósito.

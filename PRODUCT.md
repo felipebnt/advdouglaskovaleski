@@ -90,6 +90,7 @@ O que um concorrente não copia honestamente: disponibilidade real fora do horá
 
 - Logo: não existe arquivo. As peças assinam com o nome em tipografia até existir.
 - Área empresarial: publicada em 11/08/2026 e ainda não revisada pelo Douglas. O site inteiro converge para o mesmo WhatsApp, sem separar o contato do empresário do contato de quem está em situação criminal. Funciona, mas mistura duas conversas muito diferentes na mesma caixa de entrada. Decisão do cliente se vale separar.
+- **Conversão do Google Ads sem rótulo.** A tag `AW-18036409326` (extraída do site antigo em 19/08/2026, é a única que existia lá) está instalada em todo o site e a página `/obrigado/` já dispara um evento (`contato_whatsapp`) a cada clique em botão do WhatsApp. Mas isso ainda não é uma conversão formal pro Google Ads: falta o rótulo que só se gera dentro do próprio Google Ads (Ferramentas e configurações > Conversões > criar ou abrir a ação de conversão > Configuração da tag). Sem login na conta de Ads, não tem como extrair isso do site.
 
 ## Brand Commitments
 

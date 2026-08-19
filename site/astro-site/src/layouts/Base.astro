@@ -9,7 +9,7 @@ import '../styles/global.css';
 import Cabecalho from '../components/Cabecalho.astro';
 import Rodape from '../components/Rodape.astro';
 import BotaoFlutuante from '../components/BotaoFlutuante.astro';
-import { CONTATO, SITE } from '../consts';
+import { CONTATO, SITE, RASTREIO } from '../consts';
 
 interface Props {
   titulo: string;
@@ -81,6 +81,32 @@ const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema])
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!--
+      Google tag. Mesma tag do site antigo (kovaleskiadvogados.netlify.app),
+      só a base — sem rótulo de conversão configurado ainda. Sem esse rótulo,
+      o Google Ads não sabe registrar o clique como conversão; ele só
+      alimenta remarketing. O rótulo se pega no próprio Google Ads, em
+      Ferramentas > Conversões > a ação de conversão > Configuração da tag.
+    -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${RASTREIO.googleAds}`}></script>
+    <script is:inline define:vars={{ googleAds: RASTREIO.googleAds }}>
+      /*
+       * `define:vars` embrulha este script num IIFE (é assim que o Astro evita
+       * vazar as variáveis injetadas). Uma `function gtag(){}` comum ficaria
+       * presa nesse escopo local; atribuir em `window.gtag` é o que garante
+       * que a página inteira, inclusive scripts de outras páginas como
+       * `/obrigado/`, enxergue a mesma função.
+       */
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          window.dataLayer.push(arguments);
+        };
+      window.gtag('js', new Date());
+      window.gtag('config', googleAds);
+    </script>
+
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Orientação | Kovaleski Advogados" href="/rss.xml" />
 
@@ -138,6 +164,34 @@ const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema])
 
           alvos.forEach((alvo) => observador.observe(alvo));
         }
+      }
+    </script>
+
+    <script>
+      /*
+       * Desvio de conversão pelo WhatsApp. O wa.me tira a pessoa do site,
+       * então não tem como saber se o clique virou contato de verdade. A
+       * saída é abrir o WhatsApp numa aba nova e levar a aba original para
+       * a página de obrigado pouco depois — é lá que mora o evento de
+       * conversão do Google Ads.
+       *
+       * Sem JavaScript, ou na própria /obrigado/, o botão continua um link
+       * normal para o WhatsApp: nada aqui depende do desvio pra funcionar.
+       */
+      if (location.pathname !== '/obrigado/') {
+        const botoesWhatsapp = document.querySelectorAll<HTMLAnchorElement>(
+          '[data-whatsapp-cta]'
+        );
+
+        botoesWhatsapp.forEach((botao) => {
+          botao.addEventListener('click', (evento) => {
+            evento.preventDefault();
+            window.open(botao.href, '_blank', 'noopener,noreferrer');
+            window.setTimeout(() => {
+              window.location.href = '/obrigado/';
+            }, 1200);
+          });
+        });
       }
     </script>
   </body>

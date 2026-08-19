@@ -1,0 +1,99 @@
+---
+/**
+ * Destino do desvio de conversão (ver script em `Base.astro`). Quem chega
+ * aqui clicou num botão do WhatsApp; a mensagem já foi aberta numa aba ou
+ * no aplicativo, falta só ela apertar enviar.
+ *
+ * `noindex`: não é conteúdo de busca, é confirmação de um clique. Também
+ * fica fora do sitemap (ver `astro.config.mjs`).
+ */
+import Base from '../layouts/Base.astro';
+import BotaoWhatsapp from '../components/BotaoWhatsapp.astro';
+import { RASTREIO } from '../consts';
+---
+
+<Base
+  titulo="Mensagem enviada"
+  descricao="Confirmação de contato pelo WhatsApp com Kovaleski Advogados."
+  noindex={true}
+>
+  <section class="secao fundo-topo">
+    <div class="container medida centro">
+      <p class="olho">Mensagem enviada</p>
+      <h1>Confirme o envio no <span class="dourado">WhatsApp</span></h1>
+      <hr class="divisor" />
+      <p class="apoio">
+        Abrimos uma conversa com a mensagem já pronta, numa aba nova ou no
+        aplicativo. Falta só apertar enviar.
+      </p>
+
+      <div class="botoes centro fecho">
+        <BotaoWhatsapp texto="Abrir o WhatsApp de novo" variante="solido" />
+      </div>
+
+      <p class="nota">
+        Atendimento sigiloso. Confirme sempre os
+        <a href="/canais-oficiais/">canais oficiais</a> antes de enviar qualquer
+        informação.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao topo-zero">
+    <div class="container medida centro">
+      <p class="olho">Enquanto isso</p>
+      <h2>Pode ler mais</h2>
+      <hr class="divisor" />
+
+      <div class="grade links">
+        <a class="cartao" href="/situacoes/">
+          <h3>Situações</h3>
+          <p>Entenda o momento em que você está e o que esperar dele.</p>
+        </a>
+        <a class="cartao" href="/perguntas-frequentes/">
+          <h3>Perguntas frequentes</h3>
+          <p>Dúvidas comuns respondidas antes de você precisar perguntar.</p>
+        </a>
+        <a class="cartao" href="/blog/">
+          <h3>Orientação</h3>
+          <p>Conteúdo para entender o que está acontecendo.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ googleAds: RASTREIO.googleAds }}>
+  /*
+   * Evento de engajamento, disparado só aqui. Ainda não é uma conversão
+   * formal do Google Ads: falta o rótulo que se cria em Ferramentas >
+   * Conversões, dentro do próprio Google Ads. Quando o rótulo existir, essa
+   * chamada vira `gtag('event', 'conversion', { send_to: 'AW-.../RÓTULO' })`.
+   */
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'contato_whatsapp', {
+      event_category: 'engajamento',
+      event_label: 'pagina_obrigado',
+    });
+  }
+</script>
+
+<style>
+  .topo-zero {
+    padding-top: 0;
+  }
+
+  .fecho {
+    margin-top: 2rem;
+  }
+
+  .nota {
+    margin-top: 1.5rem;
+    font-size: var(--txt-nota);
+    color: var(--texto-fraco);
+  }
+
+  .links {
+    margin-top: 2rem;
+  }
+</style>
