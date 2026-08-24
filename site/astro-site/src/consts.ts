@@ -23,10 +23,17 @@ export const CONTATO = {
   instagramUrl: 'https://www.instagram.com/advdouglaskovaleski/',
 } as const;
 
+/**
+ * Mensagem padrão dos botões sem contexto próprio (home, rodapé, botão
+ * flutuante, 404, obrigado). Páginas com mensagem específica (situações,
+ * empresarial, canais-oficiais) continuam passando a delas.
+ */
+export const MENSAGEM_PADRAO = 'Olá, preciso de orientação jurídica urgente';
+
 /** Monta o link do WhatsApp com mensagem pré-preenchida por contexto. */
-export function whatsapp(mensagem?: string): string {
+export function whatsapp(mensagem: string = MENSAGEM_PADRAO): string {
   const base = `https://wa.me/${CONTATO.whatsappNumero}`;
-  return mensagem ? `${base}?text=${encodeURIComponent(mensagem)}` : base;
+  return `${base}?text=${encodeURIComponent(mensagem)}`;
 }
 
 /**
