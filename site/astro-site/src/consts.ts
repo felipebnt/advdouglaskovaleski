@@ -44,6 +44,8 @@ export function whatsapp(mensagem: string = MENSAGEM_PADRAO): string {
  */
 export const RASTREIO = {
   googleAds: 'AW-18036409326',
+  /** Instalado em 25/08/2026, direto do painel do Google Tag Manager. */
+  gtm: 'GTM-T9VZKWVF',
 } as const;
 
 /**
