@@ -16,7 +16,7 @@
 - Instagram [@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)
 - Site: https://kovaleskiadvogados.netlify.app/
 - E-mail: douglaskovaleski.adv@gmail.com
-- Google Ads: tag `AW-18036409326`, extraída do site antigo e instalada em todo o site novo desde 19/08/2026. Sem rótulo de conversão ainda (ver `PRODUCT.md`) — só mede visita, não fecha o funil.
+- Rastreamento: desde 25/08/2026 o site carrega só o Google Tag Manager (`GTM-T9VZKWVF`); a tag do Google Ads (`AW-18036409326`, extraída do site antigo) não fica mais colada no código, se configura de dentro do próprio painel do GTM. Falta ele publicar o container e, quando tiver o rótulo de conversão do Ads, criar a tag de conversão lá dentro (ver `PRODUCT.md`).
 **Principais entregas:**
 - **Criminal:** prisão em flagrante, audiência de custódia, atendimento em delegacia, habeas corpus, acompanhamento de inquérito, defesa em processo criminal e recursos, medidas protetivas e cautelares, execução penal, ECA/DEGASE.
 - **Empresarial, frente preventiva:** consultoria jurídica preventiva, elaboração e revisão de contratos (comerciais, prestação de serviços, fornecedores, parceiros, NDA), direito societário (constituição, alterações contratuais, entrada e saída de sócios, reorganização), assessoria trabalhista para o empregador, compliance e gestão de riscos, adequação à LGPD.
