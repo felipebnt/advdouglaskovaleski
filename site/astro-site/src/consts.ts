@@ -37,15 +37,20 @@ export function whatsapp(mensagem: string = MENSAGEM_PADRAO): string {
 }
 
 /**
- * IDs de rastreamento. Extraídos do site antigo (kovaleskiadvogados.netlify.app)
- * em 12/08/2026 — só existia a tag base do Google Ads, sem rótulo de conversão
- * configurado (isso se cria no próprio Google Ads: Ferramentas > Conversões).
- * Sem GA4, sem Meta Pixel, sem GTM no site antigo.
+ * IDs de rastreamento. Desde 25/08/2026 o GTM é o único container carregado
+ * pelo código — é ele quem injeta qualquer outra tag (Google Ads, Analytics
+ * etc.), configurada de dentro do próprio painel do GTM, não aqui.
  */
 export const RASTREIO = {
-  googleAds: 'AW-18036409326',
-  /** Instalado em 25/08/2026, direto do painel do Google Tag Manager. */
   gtm: 'GTM-T9VZKWVF',
+  /**
+   * Não é mais carregada direto pelo site (era antes de 25/08/2026). Mantida
+   * só como referência de qual ID cadastrar dentro da tag do GTM — extraída
+   * do site antigo (kovaleskiadvogados.netlify.app) em 12/08/2026, sem rótulo
+   * de conversão configurado (isso se cria no próprio Google Ads: Ferramentas
+   * > Conversões).
+   */
+  googleAds: 'AW-18036409326',
 } as const;
 
 /**

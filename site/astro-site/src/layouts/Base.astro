@@ -95,32 +95,6 @@ const blocos = [perfil, ...(schema ? (Array.isArray(schema) ? schema : [schema])
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!--
-      Google tag. Mesma tag do site antigo (kovaleskiadvogados.netlify.app),
-      só a base — sem rótulo de conversão configurado ainda. Sem esse rótulo,
-      o Google Ads não sabe registrar o clique como conversão; ele só
-      alimenta remarketing. O rótulo se pega no próprio Google Ads, em
-      Ferramentas > Conversões > a ação de conversão > Configuração da tag.
-    -->
-    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${RASTREIO.googleAds}`}></script>
-    <script is:inline define:vars={{ googleAds: RASTREIO.googleAds }}>
-      /*
-       * `define:vars` embrulha este script num IIFE (é assim que o Astro evita
-       * vazar as variáveis injetadas). Uma `function gtag(){}` comum ficaria
-       * presa nesse escopo local; atribuir em `window.gtag` é o que garante
-       * que a página inteira, inclusive scripts de outras páginas como
-       * `/obrigado/`, enxergue a mesma função.
-       */
-      window.dataLayer = window.dataLayer || [];
-      window.gtag =
-        window.gtag ||
-        function () {
-          window.dataLayer.push(arguments);
-        };
-      window.gtag('js', new Date());
-      window.gtag('config', googleAds);
-    </script>
-
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Orientação | Kovaleski Advogados" href="/rss.xml" />
 

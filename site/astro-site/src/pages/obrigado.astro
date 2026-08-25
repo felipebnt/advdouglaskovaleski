@@ -9,7 +9,6 @@
  */
 import Base from '../layouts/Base.astro';
 import BotaoWhatsapp from '../components/BotaoWhatsapp.astro';
-import { RASTREIO } from '../consts';
 ---
 
 <Base
@@ -63,19 +62,20 @@ import { RASTREIO } from '../consts';
   </section>
 </Base>
 
-<script is:inline define:vars={{ googleAds: RASTREIO.googleAds }}>
+<script is:inline>
   /*
-   * Evento de engajamento, disparado só aqui. Ainda não é uma conversão
-   * formal do Google Ads: falta o rótulo que se cria em Ferramentas >
-   * Conversões, dentro do próprio Google Ads. Quando o rótulo existir, essa
-   * chamada vira `gtag('event', 'conversion', { send_to: 'AW-.../RÓTULO' })`.
+   * Só empurra o evento pro dataLayer — quem decide o que fazer com ele é o
+   * GTM (tagmanager.google.com), não este código. Lá dentro: gatilho de
+   * evento personalizado escutando "contato_whatsapp" e, disparada por ele,
+   * a tag de conversão do Google Ads (Ferramentas > Conversões > a ação de
+   * conversão > Configuração da tag, pelo rótulo — ainda não criado).
    */
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'contato_whatsapp', {
-      event_category: 'engajamento',
-      event_label: 'pagina_obrigado',
-    });
-  }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'contato_whatsapp',
+    event_category: 'engajamento',
+    event_label: 'pagina_obrigado',
+  });
 </script>
 
 <style>
