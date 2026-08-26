@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap';
 const site =
   process.env.SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ??
-  'https://kovaleskiadvogados.netlify.app';
+  'https://kovaleskiadvogados.com.br';
 
 export default defineConfig({
   site,
