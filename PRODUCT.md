@@ -84,12 +84,13 @@ O que um concorrente não copia honestamente: disponibilidade real fora do horá
 **Restrições técnicas:**
 
 - Site estático em Astro, sem servidor e sem banco de dados. Publicar exige o repositório, ou um painel que grave no GitHub (ainda não instalado).
-- Domínio final indefinido. A URL sai da variável de ambiente `SITE_URL`; sem ela, canônicas e sitemap apontam para o endereço antigo do Netlify.
+- **Domínio final: `kovaleskiadvogados.com.br`** (confirmado ao vivo em 26/08/2026, servindo o build atual do Astro). A URL sai da variável de ambiente `SITE_URL`; até 26/08/2026 ela nunca esteve configurada no Vercel, então canônicas, og:url e sitemap saíam publicados com o endereço antigo do Netlify — corrigido trocando o valor padrão do código para o `.com.br`. Ainda vale configurar `SITE_URL` no próprio Vercel, pra não depender só desse padrão.
 
 **Fatos de produto ainda em aberto:**
 
 - Logo: não existe arquivo. As peças assinam com o nome em tipografia até existir.
 - Área empresarial: publicada em 11/08/2026 e ainda não revisada pelo Douglas. O site inteiro converge para o mesmo WhatsApp, sem separar o contato do empresário do contato de quem está em situação criminal. Funciona, mas mistura duas conversas muito diferentes na mesma caixa de entrada. Decisão do cliente se vale separar.
+- **Site antigo ainda no ar em `kovaleskiadvogados.netlify.app`, concorrendo com o `.com.br` no Google.** Não é uma versão desatualizada deste repositório: é outro código, outra hospedagem (sem `/empresarial/`, sem `/obrigado/`, sem marca de build do Astro), e não achamos esse domínio conectado a este repositório Git. Ninguém aqui tem credencial da conta Netlify, então não dá pra resolver por código — precisa entrar no painel da Netlify e (a) despublicar o site, se não serve mais pra nada, ou (b) configurar um redirect 301 de tudo para `https://kovaleskiadvogados.com.br` se ainda há link antigo (anúncio, backlink) apontando pra lá.
 - **Rastreamento migrado pro GTM em 25/08/2026.** O site carrega só o container do Google Tag Manager (`GTM-T9VZKWVF`); a tag `AW-18036409326` (extraída do site antigo, era a única que existia lá) não é mais chamada direto pelo código. A página `/obrigado/` empurra um evento (`contato_whatsapp`) pro `dataLayer` a cada clique em botão do WhatsApp — o resto é configuração de dentro do próprio GTM, fora do repositório: (1) tag do Google Ads em All Pages, (2) gatilho de evento personalizado escutando `contato_whatsapp`, (3) quando existir o rótulo de conversão (Google Ads > Ferramentas e configurações > Conversões), a tag de conversão presa a esse gatilho, e (4) publicar o container. Sem acesso ao painel do GTM ou do Ads, nenhum desses quatro passos pode ser feito por aqui.
 
 ## Brand Commitments

@@ -152,7 +152,7 @@ caso*.
 ## O que produz
 
 - Posts e carrosséis no Instagram ([@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)) — orientação prática pra quem tá numa situação criminal
-- Conteúdo do site (https://kovaleskiadvogados.netlify.app/)
+- Conteúdo do site (https://kovaleskiadvogados.com.br/)
 - Peças de utilidade e alerta (ex: canais oficiais / golpe)
 - Propostas e comunicação direta com cliente
 

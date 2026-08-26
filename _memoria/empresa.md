@@ -14,7 +14,7 @@
 **Ferramentas:**
 - WhatsApp (21) 99026-7742 — principal porta de entrada
 - Instagram [@advdouglaskovaleski](https://www.instagram.com/advdouglaskovaleski/)
-- Site: https://kovaleskiadvogados.netlify.app/
+- Site: https://kovaleskiadvogados.com.br/
 - E-mail: douglaskovaleski.adv@gmail.com
 - Rastreamento: desde 25/08/2026 o site carrega só o Google Tag Manager (`GTM-T9VZKWVF`); a tag do Google Ads (`AW-18036409326`, extraída do site antigo) não fica mais colada no código, se configura de dentro do próprio painel do GTM. Falta ele publicar o container e, quando tiver o rótulo de conversão do Ads, criar a tag de conversão lá dentro (ver `PRODUCT.md`).
 **Principais entregas:**
